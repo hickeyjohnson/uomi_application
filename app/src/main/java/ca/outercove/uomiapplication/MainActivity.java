@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mActionBarText;
     private FloatingActionButton mBtnAddAccount;
 
     @Override
@@ -20,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        this.mActionBarText = findViewById(R.id.tvActionMain);
-        this.mActionBarText.setTextColor(Color.WHITE);
 
         this.mBtnAddAccount = findViewById(R.id.fab);
         mBtnAddAccount.setOnClickListener(new View.OnClickListener() {
