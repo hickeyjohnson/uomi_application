@@ -1,7 +1,9 @@
 package ca.outercove.uomiapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -16,6 +18,20 @@ public class LoginRegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_registration);
+
+        // Set fields
+        this.mEmailAddress = findViewById(R.id.etEmail);
+        this.mPassword = findViewById(R.id.etPassword);
+        this.mBtnSignInRegister = findViewById(R.id.btnLoginRegister);
+
+        // Set up button click listener
+        mBtnSignInRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginValidation(mEmailAddress.getText().toString(), mPassword.getText().toString());
+            }
+        });
+
     }
 
 
@@ -48,4 +64,20 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         // TODO: conditional password verification
         return true;
     }
+
+    /**
+     *
+     * @param em : String of user email
+     * @param pw : String of user password
+     */
+    private void loginValidation(String em, String pw) {
+        // TODO: search database for existing user, create new user if doesn't exist
+        // Validate email and password
+        if (validateEmail(em) && validatePassword(pw)) {
+            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
+            startActivity(successfulLogin);
+        }
+    }
+
+
 }
