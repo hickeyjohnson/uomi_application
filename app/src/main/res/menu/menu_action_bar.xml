@@ -13,4 +13,10 @@
         android:icon="@drawable/ic_action_edit"
         android:title="@string/action_edit_icon"/>
 
+    <item
+        android:id="@+id/action_filter"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_filter_list_"
+        android:title="@string/action_filter"/>
+
 </menu>
