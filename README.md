@@ -1,6 +1,6 @@
-# UOMI
+# uomi
 
-"uomi" is an android application that tracks financial transactions between friends or groups of friends. Created by Nathaniel Johnson &amp; Matthew Hickey for a Computer Engineering design project.
+"uomi" is an android application that tracks financial transactions between friends or groups of friends. The name is derived from the phrase "you owe me \[money\]". Created by Nathaniel Johnson &amp; Matthew Hickey for a Computer Engineering design project. 
 
 ## Getting Started
 
