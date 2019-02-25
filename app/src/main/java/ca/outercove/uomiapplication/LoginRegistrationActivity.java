@@ -1,6 +1,7 @@
 package ca.outercove.uomiapplication;
 
 import android.content.Intent;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,7 +75,7 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         // TODO: search database for existing user, create new user if doesn't exist
         // Validate email and password
         if (validateEmail(em) && validatePassword(pw)) {
-            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, AccountsActivity.class);
+            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, BottomNavActivity.class);
             startActivity(successfulLogin);
         }
     }
