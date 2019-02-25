@@ -25,15 +25,6 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".MainNavDrawer"
-            android:label="@string/title_activity_main_nav_drawer"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.outercove.uomiapplication.MainActivity" />
-        </activity>
     </application>
 
 </manifest>
