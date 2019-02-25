@@ -74,7 +74,7 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         // TODO: search database for existing user, create new user if doesn't exist
         // Validate email and password
         if (validateEmail(em) && validatePassword(pw)) {
-            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
+            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, AccountsActivity.class);
             startActivity(successfulLogin);
         }
     }
