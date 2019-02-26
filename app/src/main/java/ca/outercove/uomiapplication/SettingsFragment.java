@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,11 @@ public class SettingsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        SampleSettingsFragment sampleSettingsFragment = new SampleSettingsFragment();
+
+        FragmentManager manager = getFragmentManager();
+        manager.beginTransaction().replace(R.id.setttingsLinLayoutID, sampleSettingsFragment).commit();
     }
 
     @Override
