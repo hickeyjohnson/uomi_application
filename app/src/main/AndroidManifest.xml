@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AccountsActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_bottom_nav" />
     </application>
