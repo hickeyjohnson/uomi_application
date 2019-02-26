@@ -56,7 +56,7 @@ public class LoginVerification extends LoginRegistrationActivity {
      * @return : true if valid password, false otherwise
      */
     private boolean validatePassword(String password) {
-        if (password.length() > 20 ) {
+        if (password.length() > 20 || password.length() < 6 ) {
             return false;
         }
         pattern = Pattern.compile(PASSWORD_REGEX, Pattern.CASE_INSENSITIVE);
@@ -72,10 +72,7 @@ public class LoginVerification extends LoginRegistrationActivity {
     protected boolean loginValidation(String em, String pw) {
         // TODO: search database for existing user, create new user if doesn't exist
         // Validate email and password
-        if (validateEmail(em) && validatePassword(pw)) {
-            return true;
-        }
+        return validateEmail(em) && validatePassword(pw);
 
-        return false;
     }
 }
