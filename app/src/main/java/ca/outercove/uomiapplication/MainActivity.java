@@ -35,7 +35,7 @@ NotificationsFragment.OnFragmentInteractionListener {
                     accountsTransaction.replace(R.id.content, selectedFragment);
                     accountsTransaction.commit();
                     return true;
-                case R.id.navigation_dashboard:
+                case R.id.navigation_settings:
                     FragmentTransaction settingsTransaction = getSupportFragmentManager().beginTransaction();
                     selectedFragment = SettingsFragment.newInstance("foo", "bar");
                     settingsTransaction.replace(R.id.content, selectedFragment);
