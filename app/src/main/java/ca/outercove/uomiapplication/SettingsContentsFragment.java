@@ -10,16 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SampleSettingsFragment extends Fragment {
+public class SettingsContentsFragment extends Fragment {
 
 
-    public SampleSettingsFragment() {
+    public SettingsContentsFragment() {
         // Required empty public constructor
     }
 
@@ -28,7 +27,7 @@ public class SampleSettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_sample_settings, container, false);
+        View view = inflater.inflate(R.layout.fragment_content_settings, container, false);
 
         ArrayList<String> data = new ArrayList<>();
         data.add("About");

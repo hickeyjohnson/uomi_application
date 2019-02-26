@@ -60,10 +60,10 @@ public class SettingsFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        SampleSettingsFragment sampleSettingsFragment = new SampleSettingsFragment();
+        SettingsContentsFragment settingsContentsFragment = new SettingsContentsFragment();
 
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.setttingsLinLayoutID, sampleSettingsFragment).commit();
+        manager.beginTransaction().replace(R.id.setttingsLinLayoutID, settingsContentsFragment).commit();
     }
 
     @Override
