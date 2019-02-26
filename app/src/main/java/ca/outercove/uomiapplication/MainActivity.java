@@ -18,8 +18,9 @@ NotificationsFragment.OnFragmentInteractionListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
-        NavController navController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
 
+        // Retrieve NavController and setup the Navigation using nav_main
+        NavController navController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         NavigationUI.setupWithNavController(navigation, navController);
     }
