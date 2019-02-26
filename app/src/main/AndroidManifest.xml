@@ -23,8 +23,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme" />
+            android:label="@string/title_activity_bottom_nav" />
     </application>
 
 </manifest>
