@@ -15,6 +15,9 @@ public class LoginRegistrationActivity extends AppCompatActivity {
     private EditText mPassword;
     private Button mBtnSignInRegister;
 
+    //LoginVerification object
+    private LoginVerification loginVerification;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,56 +32,25 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         mBtnSignInRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginValidation(mEmailAddress.getText().toString(), mPassword.getText().toString());
+                loginVerification.loginValidation(getEmail(), getPassword());
             }
         });
 
     }
 
-
-
-    /******************************
-        Scans a string to ensure it is a valid email
-        address.
-        @param email : email string from user input
-        @return : true if valid email, false otherwise
-
-     */
-    private boolean validateEmail(String email) {
-
-
-        // TODO: conditional email verification
-        return true;
-    }
-
     /**
-     * Scans a string to ensure it is a valid password.
-     * A valid password is defined as having at least 6
-     * characters with at least one letter and number.
      *
-     * @param pw : password string from user input
-     * @return : true if valid password, false otherwise
+     * @return user inputted text in email field to a string
      */
-    private boolean validatePassword(String pw) {
-
-
-        // TODO: conditional password verification
-        return true;
+    protected String getEmail() {
+        return mEmailAddress.getText().toString();
     }
 
     /**
      *
-     * @param em : String of user email
-     * @param pw : String of user password
+     * @return user inputted text in password field to a string
      */
-    private void loginValidation(String em, String pw) {
-        // TODO: search database for existing user, create new user if doesn't exist
-        // Validate email and password
-        if (validateEmail(em) && validatePassword(pw)) {
-            Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
-            startActivity(successfulLogin);
-        }
+    protected String getPassword() {
+        return mPassword.getText().toString();
     }
-
-
 }
