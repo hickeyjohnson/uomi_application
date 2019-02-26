@@ -69,12 +69,13 @@ public class LoginVerification extends LoginRegistrationActivity {
      * @param em : String of user email
      * @param pw : String of user password
      */
-    protected void loginValidation(String em, String pw) {
+    protected boolean loginValidation(String em, String pw) {
         // TODO: search database for existing user, create new user if doesn't exist
         // Validate email and password
         if (validateEmail(em) && validatePassword(pw)) {
-            Intent successfulLogin = new Intent(this, MainActivity.class);
-            startActivity(successfulLogin);
+            return true;
         }
+
+        return false;
     }
 }

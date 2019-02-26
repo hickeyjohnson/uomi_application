@@ -34,7 +34,12 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         mBtnSignInRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginVerification.loginValidation(getEmail(), getPassword());
+                if (loginVerification.loginValidation(getEmail(), getPassword())) {
+                    Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
+                    startActivity(successfulLogin);
+                }
+                // TODO: show a message when one of the fields is invalid
+
             }
         });
 
