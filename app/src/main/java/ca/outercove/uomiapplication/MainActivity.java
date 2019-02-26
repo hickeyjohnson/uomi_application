@@ -12,14 +12,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+
 import org.w3c.dom.Text;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsFragment.OnFragmentInteractionListener,
 SettingsFragment.OnFragmentInteractionListener,
 NotificationsFragment.OnFragmentInteractionListener {
 
-    private TextView mTextMessage;
+    private NavController mNavController;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -56,13 +62,15 @@ NotificationsFragment.OnFragmentInteractionListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
+        mNavController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content, AccountsFragment.newInstance("foo", "bar"));
-        transaction.commit();
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.replace(R.id.content, AccountsFragment.newInstance("foo", "bar"));
+//        transaction.commit();
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        NavigationUI.setupWithNavController(navigation, mNavController);
     }
 
     @Override
