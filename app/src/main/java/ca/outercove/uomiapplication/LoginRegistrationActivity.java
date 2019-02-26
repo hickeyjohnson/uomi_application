@@ -28,6 +28,8 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         this.mPassword = findViewById(R.id.etPassword);
         this.mBtnSignInRegister = findViewById(R.id.btnLoginRegister);
 
+        loginVerification = new LoginVerification(this);
+
         // Set up button click listener
         mBtnSignInRegister.setOnClickListener(new View.OnClickListener() {
             @Override
