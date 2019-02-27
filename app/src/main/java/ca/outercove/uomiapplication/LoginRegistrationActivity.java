@@ -34,10 +34,17 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         mBtnSignInRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (loginVerification.loginValidation(getEmail(), getPassword())) {
+                if(!loginVerification.validateEmail(getEmail())){
+                    mEmailAddress.setError("Invalid e-mail");
+                }
+                if (!loginVerification.validatePassword(getPassword())) {
+                    mPassword.setError("Must be alphanumeric with 6-20 characters");
+                }
+                if (loginVerification.loginValidation(getEmail(), getPassword())){
                     Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
                     startActivity(successfulLogin);
                 }
+
                 // TODO: show a message when one of the fields is invalid
 
             }

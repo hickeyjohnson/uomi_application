@@ -25,6 +25,7 @@ public class LoginVerification extends LoginRegistrationActivity {
     private Matcher matcher;
 
 
+
     /**
      * Constructor for LoginVerification class
      * @param login - LoginRegistrationActivity object
@@ -41,7 +42,7 @@ public class LoginVerification extends LoginRegistrationActivity {
      @return : true if valid email, false otherwise
 
      */
-    private boolean validateEmail(String email) {
+    protected boolean validateEmail(String email) {
         pattern = Pattern.compile(EMAIL_REGEX, Pattern.CASE_INSENSITIVE);
         matcher = pattern.matcher(email);
         return matcher.matches();
@@ -55,7 +56,7 @@ public class LoginVerification extends LoginRegistrationActivity {
      * @param password : password string from user input
      * @return : true if valid password, false otherwise
      */
-    private boolean validatePassword(String password) {
+    protected boolean validatePassword(String password) {
         if (password.length() > 20 || password.length() < 6 ) {
             return false;
         }
