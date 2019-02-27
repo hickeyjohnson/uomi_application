@@ -7,12 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
-import ca.outercove.uomiapplication.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsFragment.OnFragmentInteractionListener,
-NotificationsFragment.OnFragmentInteractionListener,
-SettingsFragment.OnListFragmentInteractionListener {
+NotificationsFragment.OnFragmentInteractionListener {
 
 
     @Override
@@ -31,8 +29,4 @@ SettingsFragment.OnListFragmentInteractionListener {
 
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem di) {
-
-    }
 }
