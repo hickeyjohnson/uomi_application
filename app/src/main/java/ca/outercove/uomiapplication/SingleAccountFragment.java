@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SettingsFragment.OnFragmentInteractionListener} interface
+ * {@link SingleAccountFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SettingsFragment#newInstance} factory method to
+ * Use the {@link SingleAccountFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SettingsFragment extends Fragment {
+public class SingleAccountFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +29,7 @@ public class SettingsFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public SettingsFragment() {
+    public SingleAccountFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +39,11 @@ public class SettingsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingsFragment.
+     * @return A new instance of fragment SingleAccountFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SettingsFragment newInstance(String param1, String param2) {
-        SettingsFragment fragment = new SettingsFragment();
+    public static SingleAccountFragment newInstance(String param1, String param2) {
+        SingleAccountFragment fragment = new SingleAccountFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,18 +58,13 @@ public class SettingsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        SettingsContentsFragment settingsContentsFragment = new SettingsContentsFragment();
-
-        FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(R.id.setttingsLinLayoutID, settingsContentsFragment).commit();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        return inflater.inflate(R.layout.fragment_single_account, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -13,20 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="248" />
-                            <option name="y" value="372" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="loginRegistrationActivity">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="31" />
-                            <option name="y" value="98" />
+                            <option name="x" value="-38" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -37,32 +25,103 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="240" />
-                            <option name="y" value="94" />
+                            <option name="x" value="-1228" />
+                            <option name="y" value="-329" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="notificationsFragment">
+                  <entry key="navigation">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="435" />
-                            <option name="y" value="95" />
+                            <option name="x" value="-623" />
+                            <option name="y" value="-337" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="accountsContentFragment">
+                              <value>
+                                <LayoutPositions>
+                                  <option name="myPosition">
+                                    <Point>
+                                      <option name="x" value="12" />
+                                      <option name="y" value="12" />
+                                    </Point>
+                                  </option>
+                                  <option name="myPositions">
+                                    <map>
+                                      <entry key="action_select_account">
+                                        <value>
+                                          <LayoutPositions />
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                </LayoutPositions>
+                              </value>
+                            </entry>
+                            <entry key="singleAccountFragment">
+                              <value>
+                                <LayoutPositions>
+                                  <option name="myPosition">
+                                    <Point>
+                                      <option name="x" value="256" />
+                                      <option name="y" value="12" />
+                                    </Point>
+                                  </option>
+                                </LayoutPositions>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </LayoutPositions>
+          </value>
+        </entry>
+        <entry key="nav_main.xml">
+          <value>
+            <LayoutPositions>
+              <option name="myPositions">
+                <map>
+                  <entry key="navigation_accounts">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-57" />
+                            <option name="y" value="-383" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="sampleSettingsFragment">
+                  <entry key="navigation_notifications">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="411" />
-                            <option name="y" value="680" />
+                            <option name="x" value="223" />
+                            <option name="y" value="-390" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="preferencesFragment3">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="461" />
+                            <option name="y" value="-400" />
                           </Point>
                         </option>
                       </LayoutPositions>

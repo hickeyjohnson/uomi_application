@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="splash"
+        android:summary="Check to allow start screen every time application starts"
+        android:title="Allow Splash Screen" />
+
+    <CheckBoxPreference
+        android:key="uncheckedCheckbox"
+        android:summary="This is unchecked settings checkbox"
+        android:title="Unchecked Settings CheckBox" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="notifications"
+        android:summary="Turn on or off application notifications"
+        android:title="Notifications" />
+
+    <EditTextPreference
+        android:key="password"
+        android:summary="Set system password to protect your software"
+        android:title="System Password [Edit Text Preference]" />
+</PreferenceScreen>
