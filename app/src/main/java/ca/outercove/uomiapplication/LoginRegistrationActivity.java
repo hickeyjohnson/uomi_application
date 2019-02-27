@@ -11,9 +11,9 @@ import android.widget.EditText;
 public class LoginRegistrationActivity extends AppCompatActivity {
 
     // Fields of the activity
-    protected EditText mEmailAddress;
-    protected EditText mPassword;
-    protected Button mBtnSignInRegister;
+    private EditText mEmailAddress;
+    private EditText mPassword;
+    private Button mBtnSignInRegister;
 
     //LoginVerification object
     private LoginVerification loginVerification;
