@@ -6,17 +6,17 @@
     app:startDestination="@id/navigation_accounts">
 
     <fragment
-        android:id="@+id/navigation_accounts"
-        android:name="ca.outercove.uomiapplication.AccountsFragment"
-        android:label="fragment_accounts"
-        tools:layout="@layout/fragment_accounts" />
-    <fragment
         android:id="@+id/navigation_notifications"
-        android:name="ca.outercove.uomiapplication.NotificationsFragment"
+        android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="ca.outercove.uomiapplication.PreferencesFragment"
+        android:name="ca.outercove.uomiapplication.fragments.PreferencesFragment"
         android:label="PreferencesFragment" />
+    <fragment
+        android:id="@+id/navigation_accounts"
+        android:name="ca.outercove.uomiapplication.fragments.AccountsViewFragment"
+        android:label="fragment_accounts_view_list"
+        tools:layout="@layout/fragment_accounts_view_list" />
 </navigation>

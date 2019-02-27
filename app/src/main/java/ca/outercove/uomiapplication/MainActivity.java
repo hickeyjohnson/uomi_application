@@ -7,9 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
+import ca.outercove.uomiapplication.fragments.NotificationsFragment;
+import ca.outercove.uomiapplication.listClasses.AccountsViewContent;
 
 public class MainActivity extends AppCompatActivity implements
-AccountsFragment.OnFragmentInteractionListener,
+AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnFragmentInteractionListener {
 
 
@@ -26,6 +29,11 @@ NotificationsFragment.OnFragmentInteractionListener {
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(AccountsViewContent.AccountsViewItem item) {
 
     }
 
