@@ -1,4 +1,4 @@
-package ca.outercove.uomiapplication;
+package ca.outercove.uomiapplication.fragments;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import ca.outercove.uomiapplication.R;
 
 /**
  * A simple {@link PreferenceFragment} subclass.
