@@ -1,6 +1,6 @@
 # uomi
 
-![uomiAppIcon](https://github.com/hickeyjohnson/uomi_application/blob/master/app/src/main/res/drawable/uomi3.png)
+![uomiAppIcon](https://github.com/hickeyjohnson/uomi_application/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 "uomi" is an android application that tracks financial transactions between friends or groups of friends. The name is derived from the phrase "you owe me \[money\]". Created by Nathaniel Johnson &amp; Matthew Hickey for a Computer Engineering design project. 
 
