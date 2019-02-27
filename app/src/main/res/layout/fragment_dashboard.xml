@@ -14,7 +14,7 @@
         android:layout_marginTop="76dp"
         android:text="@string/dashboard_title"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
