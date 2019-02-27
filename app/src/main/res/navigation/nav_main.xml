@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_accounts" />
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="ca.outercove.uomiapplication.SettingsContentsFragment"
-        android:label="fragment_content_settings"
-        tools:layout="@layout/fragment_content_settings" />
+        android:name="ca.outercove.uomiapplication.SettingsFragment"
+        android:label="fragment_settings_list"
+        tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="ca.outercove.uomiapplication.NotificationsFragment"
