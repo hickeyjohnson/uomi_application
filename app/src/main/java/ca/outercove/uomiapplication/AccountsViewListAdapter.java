@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
 import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent.AccountsViewItem;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 import java.util.List;
 

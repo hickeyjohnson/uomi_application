@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 
 import ca.outercove.uomiapplication.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent.AccountsViewItem;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 /**
  * A fragment representing a list of Items.
@@ -56,12 +56,12 @@ public class AccountsViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener));
-        }
+
+        Context context = view.getContext();
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.accounts_listed);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener));
+
         return view;
     }
 

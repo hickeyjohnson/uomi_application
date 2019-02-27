@@ -91,13 +91,25 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="navigation_accounts">
+                  <entry key="accountsViewFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-108" />
-                            <option name="y" value="-402" />
+                            <option name="x" value="-93" />
+                            <option name="y" value="-398" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="navigation_dashboard">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-352" />
+                            <option name="y" value="-405" />
                           </Point>
                         </option>
                       </LayoutPositions>

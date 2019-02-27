@@ -1,11 +1,9 @@
-package ca.outercove.uomiapplication.listClasses;
+package ca.outercove.uomiapplication.appObjects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import ca.outercove.uomiapplication.appObjects.User;
 
 public class AccountsViewContent {
 
@@ -26,7 +24,7 @@ public class AccountsViewContent {
     }
 
     private static AccountsViewItem createAccountsViewItem(Integer id, User me, User you) {
-        return new AccountsViewItem(id, "Example1", findBalance(me, you));
+        return new AccountsViewItem(id, "Nathaniel Johnson", findBalance(me, you));
     }
 
 
