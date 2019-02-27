@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import ca.outercove.uomiapplication.appObjects.User;
-import ca.outercove.uomiapplication.dummy.DummyContent;
 
 public class AccountsViewContent {
 
