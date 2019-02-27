@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ca.outercove.uomiapplication.AccountsViewListAdapter;
+import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;

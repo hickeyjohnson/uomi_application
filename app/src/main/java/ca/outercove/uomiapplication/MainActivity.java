@@ -10,7 +10,7 @@ import androidx.navigation.ui.NavigationUI;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
-import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
@@ -35,7 +35,7 @@ DashboardFragment.OnFragmentInteractionListener {
     }
 
     @Override
-    public void onListFragmentInteraction(AccountsViewContent.AccountsViewItem item) {
+    public void onListFragmentInteraction(AccountsViewItem item) {
 
     }
 

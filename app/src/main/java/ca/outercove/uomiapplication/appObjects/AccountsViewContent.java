@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * This class is meant for creating AccountsViewItems and content for the list of
+ * accounts in the AccountViewFragment View.
+ */
 public class AccountsViewContent {
 
     public static final List<AccountsViewItem> ITEMS = new ArrayList<>();

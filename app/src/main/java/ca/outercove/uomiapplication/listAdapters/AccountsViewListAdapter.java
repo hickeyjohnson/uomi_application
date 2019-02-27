@@ -1,4 +1,4 @@
-package ca.outercove.uomiapplication;
+package ca.outercove.uomiapplication.listAdapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
 import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
