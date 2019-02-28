@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@id/navigation_accounts">
+    app:startDestination="@id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -14,6 +14,11 @@
         android:id="@+id/navigation_settings"
         android:name="ca.outercove.uomiapplication.fragments.PreferencesFragment"
         android:label="PreferencesFragment" />
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="ca.outercove.uomiapplication.fragments.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
     <fragment
         android:id="@+id/navigation_accounts"
         android:name="ca.outercove.uomiapplication.fragments.AccountsViewFragment"

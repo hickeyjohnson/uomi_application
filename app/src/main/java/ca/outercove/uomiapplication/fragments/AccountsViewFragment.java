@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ca.outercove.uomiapplication.AccountsViewListAdapter;
+import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent.AccountsViewItem;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 /**
  * A fragment representing a list of Items.
@@ -25,8 +25,8 @@ public class AccountsViewFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private AccountsViewListAdapter mAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,12 +56,12 @@ public class AccountsViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener));
-        }
+        Context context = view.getContext();
+        RecyclerView recyclerView = view.findViewById(R.id.accounts_listed);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
+        recyclerView.setAdapter(mAdapter);
+
         return view;
     }
 

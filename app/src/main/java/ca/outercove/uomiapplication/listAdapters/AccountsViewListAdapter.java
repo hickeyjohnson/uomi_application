@@ -1,4 +1,4 @@
-package ca.outercove.uomiapplication;
+package ca.outercove.uomiapplication.listAdapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,14 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
 import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
-import ca.outercove.uomiapplication.listClasses.AccountsViewContent.AccountsViewItem;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link AccountsViewItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */

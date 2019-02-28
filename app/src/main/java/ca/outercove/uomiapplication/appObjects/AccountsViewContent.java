@@ -1,12 +1,15 @@
-package ca.outercove.uomiapplication.listClasses;
+package ca.outercove.uomiapplication.appObjects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ca.outercove.uomiapplication.appObjects.User;
 
+/**
+ * This class is meant for creating AccountsViewItems and content for the list of
+ * accounts in the AccountViewFragment View.
+ */
 public class AccountsViewContent {
 
     public static final List<AccountsViewItem> ITEMS = new ArrayList<>();
@@ -26,7 +29,7 @@ public class AccountsViewContent {
     }
 
     private static AccountsViewItem createAccountsViewItem(Integer id, User me, User you) {
-        return new AccountsViewItem(id, "Example1", findBalance(me, you));
+        return new AccountsViewItem(id, "Nathaniel Johnson", findBalance(me, you));
     }
 
 
