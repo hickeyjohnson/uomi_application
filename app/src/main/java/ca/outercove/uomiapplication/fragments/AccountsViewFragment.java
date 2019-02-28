@@ -2,6 +2,8 @@ package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.MainActivity;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
@@ -26,6 +29,7 @@ public class AccountsViewFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String TITLE = "Accounts";
+    private FloatingActionButton fab;
     // TODO: Customize parameters
     private OnListFragmentInteractionListener mListener;
     private AccountsViewListAdapter mAdapter;
@@ -56,7 +60,15 @@ public class AccountsViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
-
+        fab = view.findViewById(R.id.fabAddAccount);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFrag = CreateAccountDialogFragment.newInstance(
+                        R.string.create_account);
+                newFrag.show(getFragmentManager(), "dialog");
+            }
+        });
         // Set the adapter
         Context context = view.getContext();
         RecyclerView recyclerView = view.findViewById(R.id.accounts_listed);

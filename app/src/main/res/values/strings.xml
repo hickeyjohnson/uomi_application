@@ -40,4 +40,8 @@
     <string name="balanceCaption">Your net balance is...</string>
     <string name="add_transaction_menu_text">Add transaction</string>
     <string name="delete_this_account_menu_text">Delete this account</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="create_account">Create Account</string>
+    <string name="group_account_prompt">Group Account?</string>
+    <string name="cancel">Cancel</string>
 </resources>
