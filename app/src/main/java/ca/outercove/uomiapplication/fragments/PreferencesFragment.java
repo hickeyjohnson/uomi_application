@@ -12,24 +12,16 @@ import android.widget.TextView;
 
 import ca.outercove.uomiapplication.R;
 
-/**
- * A simple {@link PreferenceFragment} subclass.
- */
 public class PreferencesFragment extends PreferenceFragmentCompat {
+
+    private static final String TITLE = "Settings";
 
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
-//        super.onCreate(bundle);
-
         addPreferencesFromResource(R.xml.settings_ui);
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        addPreferencesFromResource(R.xml.settings_ui);
-//    }
+
 
 }

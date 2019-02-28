@@ -100,6 +100,15 @@
                             <option name="y" value="-613" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="actionAccountSelect">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -111,6 +120,15 @@
                             <option name="x" value="-485" />
                             <option name="y" value="-355" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="actionDashboardBackPop">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -139,7 +157,7 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="singleAccountFragment">
+                  <entry key="navigation_single_account">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">

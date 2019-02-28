@@ -38,4 +38,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="dashboard_title">uomi Dashboard</string>
     <string name="balanceCaption">Your net balance is...</string>
+    <string name="add_transaction_menu_text">Add transaction</string>
+    <string name="delete_this_account_menu_text">Delete this account</string>
 </resources>

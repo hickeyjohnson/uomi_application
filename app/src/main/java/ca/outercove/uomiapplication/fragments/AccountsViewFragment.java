@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ca.outercove.uomiapplication.MainActivity;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
@@ -24,6 +25,7 @@ public class AccountsViewFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private static final String TITLE = "Accounts";
     // TODO: Customize parameters
     private OnListFragmentInteractionListener mListener;
     private AccountsViewListAdapter mAdapter;
@@ -97,4 +99,5 @@ public class AccountsViewFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(AccountsViewItem item);
     }
+
 }
