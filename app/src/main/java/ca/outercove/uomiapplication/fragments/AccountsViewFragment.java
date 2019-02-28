@@ -25,8 +25,8 @@ public class AccountsViewFragment extends Fragment {
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
-    private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private AccountsViewListAdapter mAdapter;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,11 +56,11 @@ public class AccountsViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
 
         // Set the adapter
-
         Context context = view.getContext();
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.accounts_listed);
+        RecyclerView recyclerView = view.findViewById(R.id.accounts_listed);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener));
+        mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
+        recyclerView.setAdapter(mAdapter);
 
         return view;
     }
