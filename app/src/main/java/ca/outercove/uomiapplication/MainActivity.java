@@ -11,11 +11,15 @@ import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
+import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnFragmentInteractionListener,
-DashboardFragment.OnFragmentInteractionListener {
+DashboardFragment.OnFragmentInteractionListener,
+SingleAccountFragment.OnFragmentInteractionListener {
+
+    protected NavController mNavController;
 
 
     @Override
@@ -24,9 +28,9 @@ DashboardFragment.OnFragmentInteractionListener {
         setContentView(R.layout.activity_bottom_nav);
 
         // Retrieve NavController and setup the Navigation using nav_main
-        NavController navController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
+        mNavController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
-        NavigationUI.setupWithNavController(navigation, navController);
+        NavigationUI.setupWithNavController(navigation, mNavController);
     }
 
     @Override
@@ -36,7 +40,7 @@ DashboardFragment.OnFragmentInteractionListener {
 
     @Override
     public void onListFragmentInteraction(AccountsViewItem item) {
-
+        mNavController.navigate(R.id.navigation_single_account);
     }
 
 }

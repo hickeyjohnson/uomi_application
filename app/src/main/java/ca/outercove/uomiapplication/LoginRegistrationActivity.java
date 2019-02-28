@@ -42,11 +42,11 @@ public class LoginRegistrationActivity extends AppCompatActivity {
                 }
                 if (loginVerification.loginValidation(getEmail(), getPassword())){
                     Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
+                    // TODO: store email in the app
                     startActivity(successfulLogin);
+                    // Finish activity so users don't go back to login screen when back button pressed
+                    finish();
                 }
-
-                // TODO: show a message when one of the fields is invalid
-
             }
         });
 
