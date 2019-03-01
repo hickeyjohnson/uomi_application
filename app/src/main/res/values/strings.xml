@@ -44,4 +44,5 @@
     <string name="create_account">Create Account</string>
     <string name="group_account_prompt">Group Account?</string>
     <string name="cancel">Cancel</string>
+    <string name="account_balance_caption">Your balance with this contact:</string>
 </resources>
