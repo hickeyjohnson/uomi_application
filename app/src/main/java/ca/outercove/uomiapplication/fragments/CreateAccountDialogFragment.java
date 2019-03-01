@@ -51,7 +51,4 @@ public class CreateAccountDialogFragment extends DialogFragment {
 
     }
 
-    public static void showDialog() {
-
-    }
 }
