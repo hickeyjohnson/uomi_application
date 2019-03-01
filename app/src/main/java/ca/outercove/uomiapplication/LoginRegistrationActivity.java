@@ -42,7 +42,7 @@ public class LoginRegistrationActivity extends AppCompatActivity {
                 }
                 if (loginVerification.loginValidation(getEmail(), getPassword())){
                     Intent successfulLogin = new Intent(LoginRegistrationActivity.this, MainActivity.class);
-                    // TODO: store email in the app
+                    // TODO: store email in the app and verify with database
                     startActivity(successfulLogin);
                     // Finish activity so users don't go back to login screen when back button pressed
                     finish();
