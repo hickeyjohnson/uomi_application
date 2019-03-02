@@ -16,6 +16,7 @@ public class LoginVerification extends LoginRegistrationActivity {
     private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
 
     //Password Regex
+    // FIXME: changing the + to {6, 20} eliminates the need to check length separately
     private static final String PASSWORD_REGEX = "[A-Za-z0-9]+";
 
     // static Pattern object, since pattern is fixed

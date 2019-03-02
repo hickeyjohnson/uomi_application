@@ -33,18 +33,18 @@ public class AccountsViewContent {
     }
 
 
-    public static String findBalance(User me, User you) {
+    public static Double findBalance(User me, User you) {
         // TODO: query web api for what the balance is
-        return "$1,000.00";
+        return new Double(34.91);
     }
 
     public static class AccountsViewItem {
         // TODO: contact image
         public final Integer id;
         public final String contactName;
-        public final String balance;
+        public final Double balance;
 
-        public AccountsViewItem(Integer id, String contactName, String balance) {
+        public AccountsViewItem(Integer id, String contactName, Double balance) {
             this.id = id;
             this.contactName = contactName;
             this.balance = balance;

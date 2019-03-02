@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/action_refresh"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_refresh_black_24dp"
         android:title="@string/action_refresh_icon"/>
 
@@ -14,9 +14,16 @@
         android:title="@string/action_edit_icon"/>
 
     <item
-        android:id="@+id/action_filter"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_filter_list_"
-        android:title="@string/action_filter"/>
+        android:id="@+id/action_add_transaction"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_add_white_24dp"
+        android:title="@string/add_transaction_menu_text" />
+
+    <item
+        android:id="@+id/action_delete_account"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_action_edit"
+        android:title="@string/delete_this_account_menu_text" />
+
 
 </menu>

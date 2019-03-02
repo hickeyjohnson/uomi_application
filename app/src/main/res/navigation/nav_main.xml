@@ -8,20 +8,36 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
-        android:label="fragment_notifications"
+        android:label="Notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_settings"
         android:name="ca.outercove.uomiapplication.fragments.PreferencesFragment"
-        android:label="PreferencesFragment" />
+        android:label="Settings" />
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="ca.outercove.uomiapplication.fragments.DashboardFragment"
-        android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/actionDashboardBackPop"
+            app:destination="@id/navigation_dashboard"
+            app:popUpTo="@id/navigation_dashboard"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_accounts"
         android:name="ca.outercove.uomiapplication.fragments.AccountsViewFragment"
-        android:label="fragment_accounts_view_list"
-        tools:layout="@layout/fragment_accounts_view_list" />
+        android:label="Accounts"
+        tools:layout="@layout/fragment_accounts_view_list">
+        <action
+            android:id="@+id/actionAccountSelect"
+            app:destination="@id/navigation_single_account"
+            app:popUpTo="@+id/navigation_accounts" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_single_account"
+        android:name="ca.outercove.uomiapplication.fragments.SingleAccountFragment"
+        android:label="Single Account"
+        tools:layout="@layout/fragment_single_account" />
 </navigation>

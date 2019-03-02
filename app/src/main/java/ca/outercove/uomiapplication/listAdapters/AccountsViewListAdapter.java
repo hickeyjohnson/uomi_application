@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.fabiomsr.moneytextview.MoneyTextView;
+
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
 import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
@@ -41,7 +43,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         holder.mItem = mValues.get(position);
         holder.mAvatarView.setImageResource(R.drawable.uomi3);
         holder.mContactView.setText(mValues.get(position).contactName);
-        holder.mBalanceView.setText(mValues.get(position).balance);
+        holder.mBalanceView.setAmount(mValues.get(position).balance.floatValue());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +66,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         public final View mView;
         public final ImageView mAvatarView;
         public final TextView mContactView;
-        public final TextView mBalanceView;
+        public final MoneyTextView mBalanceView;
         public AccountsViewItem mItem;
 
         public ViewHolder(View view) {

@@ -33,3 +33,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Dr. Vardy of Memorial University of Newfoundland
+* GitHub User fabiomsr for the [MoneyTextView](https://github.com/fabiomsr/MoneyTextView)
