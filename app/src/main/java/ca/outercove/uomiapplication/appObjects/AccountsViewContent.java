@@ -35,7 +35,7 @@ public class AccountsViewContent {
 
     public static Double findBalance(User me, User you) {
         // TODO: query web api for what the balance is
-        return new Double(34.91);
+        return 34.91;
     }
 
     public static class AccountsViewItem {
