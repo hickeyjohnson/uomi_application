@@ -45,4 +45,11 @@
     <string name="group_account_prompt">Group Account?</string>
     <string name="cancel">Cancel</string>
     <string name="account_balance_caption">Your balance with this contact:</string>
+
+
+
+    <string name="facebook_app_id">483083305556412</string>
+    <string name="fb_login_protocol_scheme">fb483083305556412</string>
+
+
 </resources>
