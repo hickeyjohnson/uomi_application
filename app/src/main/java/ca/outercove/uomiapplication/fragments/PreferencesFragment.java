@@ -14,9 +14,6 @@ import ca.outercove.uomiapplication.R;
 
 public class PreferencesFragment extends PreferenceFragmentCompat {
 
-    private static final String TITLE = "Settings";
-
-
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
         addPreferencesFromResource(R.xml.settings_ui);
