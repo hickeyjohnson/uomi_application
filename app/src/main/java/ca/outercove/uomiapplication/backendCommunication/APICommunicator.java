@@ -41,6 +41,15 @@ public interface APICommunicator {
      */
     Object addNewAccount(Integer userId, List<Integer> others);
 
+    /**
+     * Removes an account given an account id
+     * @param accountId: account unique identifier
+     * @return: true if account deleted, false otherwise
+     */
+    boolean removeAccount(Integer accountId);
+
+
+
 
 
 
