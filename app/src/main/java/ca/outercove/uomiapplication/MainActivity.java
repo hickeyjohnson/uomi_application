@@ -7,21 +7,21 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
-import ca.outercove.uomiapplication.fragments.NotificationsFragment;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
+import ca.outercove.uomiapplication.fragments.NotificationsFragment;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
-NotificationsFragment.OnFragmentInteractionListener,
+NotificationsFragment.OnListFragmentInteractionListener,
 DashboardFragment.OnFragmentInteractionListener,
 SingleAccountFragment.OnFragmentInteractionListener {
 
@@ -67,6 +67,11 @@ SingleAccountFragment.OnFragmentInteractionListener {
     @Override
     public void onListFragmentInteraction(AccountsViewItem item) {
         mNavController.navigate(R.id.actionAccountSelect);
+    }
+
+    @Override
+    public void onListFragmentInteraction(NotificationsListItem item) {
+
     }
 
 }
