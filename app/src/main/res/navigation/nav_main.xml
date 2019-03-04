@@ -6,11 +6,6 @@
     app:startDestination="@id/navigation_dashboard">
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
         android:id="@+id/navigation_settings"
         android:name="ca.outercove.uomiapplication.fragments.PreferencesFragment"
         android:label="Settings" />
@@ -40,4 +35,9 @@
         android:name="ca.outercove.uomiapplication.fragments.SingleAccountFragment"
         android:label="Single Account"
         tools:layout="@layout/fragment_single_account" />
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
