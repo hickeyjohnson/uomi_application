@@ -48,7 +48,13 @@ public interface APICommunicator {
      */
     boolean removeAccount(Integer accountId);
 
-
+    /**
+     * Add transaction item to an account
+     * @param transactionItem: object containing information about transaction
+     * @param accountId: account unique identifier
+     * @return: information about the updated account after new transaction
+     */
+    Object addTransactionItem(Object transactionItem, Integer accountId);
 
 
 
