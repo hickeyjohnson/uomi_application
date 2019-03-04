@@ -62,11 +62,11 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final ImageView mAvatarView;
-        public final TextView mContactView;
-        public final MoneyTextView mBalanceView;
-        public AccountsViewItem mItem;
+        final View mView;
+        final ImageView mAvatarView;
+        final TextView mContactView;
+        final MoneyTextView mBalanceView;
+        AccountsViewItem mItem;
 
         public ViewHolder(View view) {
             super(view);
