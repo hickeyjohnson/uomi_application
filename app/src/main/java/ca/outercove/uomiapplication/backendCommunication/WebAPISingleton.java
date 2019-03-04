@@ -9,6 +9,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
+
+/**
+ * Singleton class that handles the requests queue for communicating with an external web API.
+ */
 public class WebAPISingleton {
     private static WebAPISingleton instance;
     private RequestQueue requestQueue;
