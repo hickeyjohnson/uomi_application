@@ -37,7 +37,7 @@
             android:typeface="normal" />
 
         <org.fabiomsr.moneytextview.MoneyTextView
-            android:id="@+id/netBalanceAmnt"
+            android:id="@+id/accountBalanceAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -76,11 +76,12 @@
             android:textAlignment="center" />
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/transactionsRecView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
             android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             tools:itemCount="20" />
 
     </LinearLayout>
