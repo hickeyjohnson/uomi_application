@@ -40,7 +40,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mAvatarView.setImageResource(R.drawable.uomi3);
+        holder.mAvatarView.setImageResource(R.mipmap.ic_glossy_app_icon);
         holder.mContactView.setText(mValues.get(position).contactName);
         holder.mBalanceView.setAmount(mValues.get(position).balance.floatValue());
 
