@@ -33,6 +33,14 @@ public interface APICommunicator {
      */
     List getUserAccounts(Integer userId);
 
+    /**
+     * Will create a new account including the current user and at least one more user
+     * @param userId: integer user id unique identifier
+     * @param others: list of at least one more user
+     * @return: information about the newly created account
+     */
+    Object addNewAccount(Integer userId, List<Integer> others);
+
 
 
 
