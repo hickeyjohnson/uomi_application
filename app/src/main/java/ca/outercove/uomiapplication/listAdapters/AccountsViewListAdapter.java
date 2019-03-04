@@ -11,7 +11,6 @@ import org.fabiomsr.moneytextview.MoneyTextView;
 
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
-import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 import java.util.List;
@@ -63,11 +62,11 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final ImageView mAvatarView;
-        public final TextView mContactView;
-        public final MoneyTextView mBalanceView;
-        public AccountsViewItem mItem;
+        final View mView;
+        final ImageView mAvatarView;
+        final TextView mContactView;
+        final MoneyTextView mBalanceView;
+        AccountsViewItem mItem;
 
         public ViewHolder(View view) {
             super(view);
