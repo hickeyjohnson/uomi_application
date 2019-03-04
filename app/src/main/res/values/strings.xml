@@ -54,6 +54,7 @@
     <string name="notif_icon">notif_icon</string>
     <string name="balance">balance</string>
     <string name="tranasactions_list">Account Transactions</string>
+    <string name="example_Transaction">Two slices of pizza</string>
 
 
 </resources>
