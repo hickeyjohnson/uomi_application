@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.fabiomsr:moneytextview:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/moneytextview-1.1.0.aar/196ba97790f38eb83485d7e4b5fd3e06/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/moneytextview-1.1.0.aar/196ba97790f38eb83485d7e4b5fd3e06/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.fabiomsr/moneytextview/1.1.0/54d584f8e125afcb4452d5aade0c39aee228603e/moneytextview-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

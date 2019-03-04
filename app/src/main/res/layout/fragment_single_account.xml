@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.SingleAccountFragment">
 
-    <TextView
-        android:id="@+id/tvInAccountCaption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/account_balance_caption" />
-
-    <View
-        android:id="@+id/accountViewDivider"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="?android:attr/listDivider" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabAddTransaction"
         android:layout_width="wrap_content"
@@ -29,4 +17,72 @@
         android:focusable="true"
         android:src="@drawable/ic_add_black_24dp"
         app:backgroundTint="@color/colorAccent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="12sp"
+            android:text="@string/balance"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:typeface="normal" />
+
+        <org.fabiomsr.moneytextview.MoneyTextView
+            android:id="@+id/netBalanceAmnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:amount="1256.56"
+            app:baseTextColor="@color/colorPrimary"
+            app:baseTextSize="54sp"
+            app:decimalDigitsTextSize="30sp"
+            app:decimalMargin="6dp"
+            app:includeDecimalSeparator="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dashboardBalanceCaption"
+            app:layout_constraintVertical_bias="0.108"
+            app:symbol="$"
+            app:symbolGravity="start|top"
+            app:symbolMargin="6dp"
+            app:symbolTextSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text="@string/tranasactions_list"
+            android:textAlignment="center" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="center"
+            tools:itemCount="20" />
+
+    </LinearLayout>
+
 </FrameLayout>

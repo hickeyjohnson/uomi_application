@@ -52,6 +52,8 @@
     <string name="fb_login_protocol_scheme">fb483083305556412</string>
     <string name="notification_example_text">You owe Nathaniel Johnson $1,000.</string>
     <string name="notif_icon">notif_icon</string>
+    <string name="balance">balance</string>
+    <string name="tranasactions_list">Account Transactions</string>
 
 
 </resources>
