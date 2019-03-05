@@ -70,7 +70,19 @@ public interface APICommunicator {
      */
     Double getUserBalance(Integer userId);
 
+    /**
+     * Gets all transactions in a given account
+     * @param accountId: account unique identifier
+     * @return: a list of all the account items
+     */
+    List getTransactions(Integer accountId);
 
+    /**
+     * Removes a transaction from an account
+     * @param transactionId
+     * @return
+     */
+    boolean removeTransaction(Integer transactionId);
 
 
 
