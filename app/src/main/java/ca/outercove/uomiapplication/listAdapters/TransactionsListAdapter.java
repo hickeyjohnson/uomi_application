@@ -62,6 +62,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         return mValues.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView mTransPayerView;

@@ -83,6 +83,7 @@ public class SingleAccountFragment extends Fragment {
         mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
         recyclerView.setAdapter(mAdapter);
 
+
         return view;
     }
 
