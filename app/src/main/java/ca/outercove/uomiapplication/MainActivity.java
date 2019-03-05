@@ -13,6 +13,7 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
+import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnListFragmentInteractionListener,
 DashboardFragment.OnFragmentInteractionListener,
-SingleAccountFragment.OnFragmentInteractionListener {
+SingleAccountFragment.OnListFragmentInteractionListener {
 
     protected NavController mNavController;
 
@@ -55,7 +56,7 @@ SingleAccountFragment.OnFragmentInteractionListener {
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onListFragmentInteraction(SingleAccountViewContent.TransactionItem item) {
 
     }
 
