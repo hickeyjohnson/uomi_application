@@ -20,11 +20,11 @@ public class SingleAccountViewContent {
         // Add some sample items.
         for (int i = 1; i <= 15; i++) {
             // TODO: users and stuff
-            addItem(createTransactiomViewItem(i, null, null));
+            addItem(createTransactionViewItem(i, null, null));
         }
     }
 
-    private static TransactionItem createTransactiomViewItem(Integer id, User me, User you) {
+    private static TransactionItem createTransactionViewItem(Integer id, User me, User you) {
         return new TransactionItem(id, "Pizza Money","Matthew H. paid", findValue(me, you));
     }
 
