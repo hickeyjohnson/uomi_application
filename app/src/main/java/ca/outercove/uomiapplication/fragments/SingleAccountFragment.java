@@ -78,7 +78,7 @@ public class SingleAccountFragment extends Fragment {
         });
         // Set the adapter
         Context context = view.getContext();
-        RecyclerView recyclerView = view.findViewById(R.id.accounts_listed);
+        RecyclerView recyclerView = view.findViewById(R.id.transactionsRecView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
         recyclerView.setAdapter(mAdapter);
