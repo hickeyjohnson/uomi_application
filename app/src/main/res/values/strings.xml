@@ -52,6 +52,7 @@
     <string name="fb_login_protocol_scheme">fb483083305556412</string>
     <string name="notification_example_text">You owe Nathaniel Johnson $1,000.</string>
     <string name="notif_icon">notif_icon</string>
+    <string name="base_url">http://192.168.2.27:8080/uomi_api</string>
 
 
 </resources>

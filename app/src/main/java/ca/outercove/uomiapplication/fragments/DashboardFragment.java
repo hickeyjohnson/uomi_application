@@ -4,11 +4,22 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.fabiomsr.moneytextview.MoneyTextView;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import ca.outercove.uomiapplication.R;
+import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 
 
 /**
@@ -25,6 +36,8 @@ public class DashboardFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TITLE = "Dashboard";
+
+    private MoneyTextView netBalanceTV;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -71,6 +84,8 @@ public class DashboardFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(TITLE);
         }
+        netBalanceTV = view.findViewById(R.id.netBalanceAmnt);
+        setMainBalance();
         return view;
     }
 
@@ -89,6 +104,30 @@ public class DashboardFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void setMainBalance() {
+        String url = getString(R.string.base_url) + "/netBalance/" + Integer.toString(2);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            netBalanceTV.setAmount((float)response.getDouble("netBalance"));
+                        } catch (JSONException e) {
+                            Log.e("UOMI", "unexpected JSON exception", e);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        netBalanceTV.setAmount(0.01f);
+                        System.out.println(error.toString());
+                    }
+                });
+
+        RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     /**
