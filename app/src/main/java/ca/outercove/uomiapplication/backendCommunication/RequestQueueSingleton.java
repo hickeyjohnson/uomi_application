@@ -13,13 +13,13 @@ import com.android.volley.toolbox.Volley;
 /**
  * Singleton class that handles the requests queue for communicating with an external web API.
  */
-public class WebAPISingleton {
-    private static WebAPISingleton instance;
+public class RequestQueueSingleton {
+    private static RequestQueueSingleton instance;
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
     private static Context ctx;
 
-    private WebAPISingleton(Context context) {
+    private RequestQueueSingleton(Context context) {
         ctx = context;
         requestQueue = getRequestQueue();
 
@@ -39,9 +39,9 @@ public class WebAPISingleton {
                 });
     }
 
-    public static synchronized WebAPISingleton getInstance(Context context) {
+    public static synchronized RequestQueueSingleton getInstance(Context context) {
         if (instance == null) {
-            instance = new WebAPISingleton(context);
+            instance = new RequestQueueSingleton(context);
         }
 
         return instance;

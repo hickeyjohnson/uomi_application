@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent;
-import ca.outercove.uomiapplication.fragments.dummy.DummyContent;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.listAdapters.NotificationsListAdapter;
 
