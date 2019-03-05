@@ -56,6 +56,8 @@
     <string name="tranasactions_list">Account Transactions</string>
     <string name="example_Transaction">Two slices of pizza</string>
     <string name="transPicDesc">Image for transaction can go- here, not sure if needed</string>
+    <string name="longstring">sdfygsudygfusydgfuygsduyfgsd</string>
+    <string name="example_userPaid">Matthew Paid</string>
 
 
 </resources>

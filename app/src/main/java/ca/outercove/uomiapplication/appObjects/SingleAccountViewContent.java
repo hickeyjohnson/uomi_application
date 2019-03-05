@@ -25,7 +25,7 @@ public class SingleAccountViewContent {
     }
 
     private static TransactionItem createTransactiomViewItem(Integer id, User me, User you) {
-        return new TransactionItem(id, "Pizza Money", findValue(me, you));
+        return new TransactionItem(id, "Pizza Money","Matthew H. paid", findValue(me, you));
     }
 
     public static Double findValue(User me, User you) {
@@ -37,11 +37,13 @@ public class SingleAccountViewContent {
         // TODO: contact image
         public final Integer id;
         public final String transactionName;
+        public final String transactionPayer;
         public final Double value;
 
-        public TransactionItem(Integer id, String transactionName, Double value) {
+        public TransactionItem(Integer id, String transactionName, String transactionPayer, Double value) {
             this.id = id;
             this.transactionName = transactionName;
+            this.transactionPayer = transactionPayer;
             this.value = value;
         }
     }

@@ -59,21 +59,9 @@
             app:symbolMargin="6dp"
             app:symbolTextSize="30sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:text="@string/tranasactions_list"
-            android:textAlignment="center" />
+            android:layout_height="5dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/transactionsRecView"

@@ -41,7 +41,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mTransPicView.setImageResource(R.drawable.uomi3);
+        holder.mTransPayerView.setText(mValues.get(position).transactionPayer);
         holder.mTransItemView.setText(mValues.get(position).transactionName);
         holder.mValueView.setAmount(mValues.get(position).value.floatValue());
 
@@ -64,7 +64,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final ImageView mTransPicView;
+        public final TextView mTransPayerView;
         public final TextView mTransItemView;
         public final MoneyTextView mValueView;
         public TransactionItem mItem;
@@ -72,7 +72,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mTransPicView = view.findViewById(R.id.transaction_pic);
+            mTransPayerView = view.findViewById(R.id.transaction_userPaid_id);
             mTransItemView = view.findViewById(R.id.transaction_item_id);
             mValueView = view.findViewById(R.id.transaction_value_id);
         }
