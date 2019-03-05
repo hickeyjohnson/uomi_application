@@ -16,9 +16,9 @@ import ca.outercove.uomiapplication.fragments.SingleAccountFragment.OnListFragme
 import java.util.List;
 
 /**
- *
- *
- *
+ *{@link RecyclerView.Adapter} that can display a {@link TransactionItem} and makes a call to the
+ * specified {@link OnListFragmentInteractionListener}.
+ * TODO: Replace the implementation with code for your data type.
  */
 
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.ViewHolder> {

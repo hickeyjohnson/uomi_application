@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * This class creates TransactionItems and content for the list of transactions in
+ * the SingleAccountFragment View.
+ */
 public class SingleAccountViewContent {
 
 
