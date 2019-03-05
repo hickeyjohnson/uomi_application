@@ -61,6 +61,7 @@
     <string name="createTransaction">Add New Transaction</string>
     <string name="itemToAdd">Item to add</string>
     <string name="itemValue">Item Value</string>
+    <string name="base_url">http://192.168.2.27:8080/uomi_api</string>
 
 
 </resources>
