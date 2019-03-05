@@ -11,7 +11,6 @@ import org.fabiomsr.moneytextview.MoneyTextView;
 
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment.OnListFragmentInteractionListener;
-import ca.outercove.uomiapplication.dummy.DummyContent.DummyItem;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 
 import java.util.List;
