@@ -58,6 +58,9 @@
     <string name="transPicDesc">Image for transaction can go- here, not sure if needed</string>
     <string name="longstring">sdfygsudygfusydgfuygsduyfgsd</string>
     <string name="example_userPaid">Matthew Paid</string>
+    <string name="createTransaction">Add New Transaction</string>
+    <string name="itemToAdd">Item to add</string>
+    <string name="itemValue">Item Value</string>
 
 
 </resources>

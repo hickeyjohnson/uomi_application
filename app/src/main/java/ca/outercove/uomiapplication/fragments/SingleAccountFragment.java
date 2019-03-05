@@ -71,8 +71,8 @@ public class SingleAccountFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFrag = CreateAccountDialogFragment.newInstance(
-                        R.string.create_account);
+                DialogFragment newFrag = AddTransactionDialogFragment.newInstance(
+                        R.string.createTransaction);
                 newFrag.show(getFragmentManager(), "dialog");
             }
         });
