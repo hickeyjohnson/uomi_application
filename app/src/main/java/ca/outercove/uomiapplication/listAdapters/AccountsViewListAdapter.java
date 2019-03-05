@@ -71,9 +71,9 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mAvatarView = view.findViewById(R.id.tranasaction_pic);
+            mAvatarView = view.findViewById(R.id.account_contact_avatar);
             mContactView = view.findViewById(R.id.account_contact_id);
-            mBalanceView = view.findViewById(R.id.tranasaction_amount_id);
+            mBalanceView = view.findViewById(R.id.account_balance_id);
         }
 
         @Override

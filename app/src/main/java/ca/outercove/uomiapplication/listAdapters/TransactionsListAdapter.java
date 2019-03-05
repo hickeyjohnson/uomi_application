@@ -72,9 +72,9 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mTransPicView = view.findViewById(R.id.tranasaction_pic);
-            mTransItemView = view.findViewById(R.id.account_contact_id);
-            mValueView = view.findViewById(R.id.tranasaction_amount_id);
+            mTransPicView = view.findViewById(R.id.transaction_pic);
+            mTransItemView = view.findViewById(R.id.transaction_item_id);
+            mValueView = view.findViewById(R.id.transaction_value_id);
         }
     }
 }
