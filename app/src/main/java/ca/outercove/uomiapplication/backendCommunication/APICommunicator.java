@@ -56,6 +56,24 @@ public interface APICommunicator {
      */
     Object addTransactionItem(Object transactionItem, Integer accountId);
 
+    /**
+     * Remove a user's information from the application
+     * @param userId: user unique identifier
+     * @return: true if user removed, false otherwise
+     */
+    boolean removeUser(Integer userId);
+
+    /**
+     * Returns a user's net balance
+     * @param userId: user unique identifier
+     * @return: the net balance of the user
+     */
+    Double getUserBalance(Integer userId);
+
+
+
+
+
 
 
 
