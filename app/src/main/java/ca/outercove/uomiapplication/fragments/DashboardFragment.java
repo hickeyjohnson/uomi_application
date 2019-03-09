@@ -1,8 +1,10 @@
 package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +38,7 @@ public class DashboardFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String TITLE = "Dashboard";
+    private SharedPreferences pref;
 
     private MoneyTextView netBalanceTV;
 
@@ -85,6 +88,7 @@ public class DashboardFragment extends Fragment {
             mListener.onFragmentInteraction(TITLE);
         }
         netBalanceTV = view.findViewById(R.id.netBalanceAmnt);
+        this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
         setMainBalance();
         return view;
     }
@@ -106,8 +110,12 @@ public class DashboardFragment extends Fragment {
         mListener = null;
     }
 
+    /**
+     * Queries the web api for the net balance of the particular user
+     */
     public void setMainBalance() {
-        String url = getString(R.string.base_url) + "/netBalance/" + Integer.toString(2);
+        // TODO: instead of 2 use the current user id
+        String url = getString(R.string.base_url) + "/netBalance/" + Integer.toString(this.pref.getInt("userId", -1));
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override

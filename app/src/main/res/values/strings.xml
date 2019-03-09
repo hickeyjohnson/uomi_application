@@ -62,6 +62,7 @@
     <string name="itemToAdd">Item to add</string>
     <string name="itemValue">Item Value</string>
     <string name="base_url">http://192.168.2.27:8080/uomi_api</string>
+    <string name="preference_file_key">ca.outercove.uomiapplication.PREFERENCE_FILE_KEY</string>
 
 
 </resources>
