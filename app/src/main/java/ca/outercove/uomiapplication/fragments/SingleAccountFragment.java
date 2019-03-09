@@ -96,6 +96,9 @@ public class SingleAccountFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 //TODO:Delete Transaction
+                DialogFragment newFrag = DeleteTransactionDialogFragment.newInstance(
+                        R.string.delete_transaction);
+                newFrag.show(getFragmentManager(), "dialog");
             }
         }).attachToRecyclerView(recyclerView);
         return view;

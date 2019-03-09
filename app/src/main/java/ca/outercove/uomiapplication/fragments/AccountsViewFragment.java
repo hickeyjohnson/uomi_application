@@ -88,6 +88,9 @@ public class AccountsViewFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 //TODO:Delete Account
+                DialogFragment newFrag = DeleteAccountDialogFragment.newInstance(
+                        R.string.delete_account);
+                newFrag.show(getFragmentManager(), "dialog");
             }
         }).attachToRecyclerView(recyclerView);
         return view;
