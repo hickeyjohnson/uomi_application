@@ -22,7 +22,7 @@ public class DeleteAccountDialogFragment extends DialogFragment {
                     .setPositiveButton(R.string.delete_account, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // TODO: Create the account
+                            // TODO: Delete the account
                             throw new UnsupportedOperationException("Delete account not implemented");
                         }
                     })

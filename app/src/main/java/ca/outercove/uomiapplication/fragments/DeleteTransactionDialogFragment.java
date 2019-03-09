@@ -21,7 +21,7 @@ public class DeleteTransactionDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.delete_transaction, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TODO: Create the account
+                        // TODO: Delete the transaction
                         throw new UnsupportedOperationException("Delete transaction not implemented");
                     }
                 })
