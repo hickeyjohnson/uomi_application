@@ -149,7 +149,7 @@ public class LoginRegistrationActivity extends AppCompatActivity {
 
 
         // In here is the intent to start the main activity
-        signInOrRegisterUser();
+//        signInOrRegisterUser();
 
     }
 
