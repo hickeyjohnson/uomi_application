@@ -99,6 +99,9 @@ public class LoginRegistrationActivity extends AppCompatActivity {
                     editor = pref.edit();
                     editor.putString("email", getEmail());
                     editor.putString("pw", getPassword());
+                    editor.putString("firstName", "");
+                    editor.putString("lastName", "");
+                    editor.commit();
                     startMainActivity();
                 }
             }
@@ -136,11 +139,14 @@ public class LoginRegistrationActivity extends AppCompatActivity {
     }
 
     private void startMainActivity() {
-        try {
-            getFacebookUserInfo();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (AccessToken.getCurrentAccessToken() != null) {
+            try {
+                getFacebookUserInfo();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
 
         // In here is the intent to start the main activity
         signInOrRegisterUser();
@@ -158,11 +164,11 @@ public class LoginRegistrationActivity extends AppCompatActivity {
                             editor.putString("email", object.getString("email"));
                             editor.putString("firstName", object.getString("first_name"));
                             editor.putString("lastName", object.getString("last_name"));
+                            editor.commit();
+                            signInOrRegisterUser();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-                        editor.commit();
                     }
                 }
         );
@@ -176,6 +182,11 @@ public class LoginRegistrationActivity extends AppCompatActivity {
     private void signInOrRegisterUser() {
         JSONObject userInfo = new JSONObject();
         String url = getString(R.string.base_url) + "/users";
+        try {
+            System.out.println(userInfo.toString(2));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         try {
             userInfo.put("email", pref.getString("email", null));
             userInfo.put("pw", pref.getString("pw", null));
