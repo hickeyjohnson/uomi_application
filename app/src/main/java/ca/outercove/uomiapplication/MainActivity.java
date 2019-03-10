@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import androidx.annotation.*;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,7 @@ SingleAccountFragment.OnListFragmentInteractionListener {
     protected NavController mNavController;
 
     private SharedPreferences pref;
-    private Integer userId;
+
 
 
     @Override
@@ -75,7 +76,9 @@ SingleAccountFragment.OnListFragmentInteractionListener {
 
     @Override
     public void onListFragmentInteraction(AccountsViewItem item) {
-        mNavController.navigate(R.id.actionAccountSelect);
+        Bundle bundle = new Bundle();
+        bundle.putInt("accountId", item.id);
+        mNavController.navigate(R.id.actionAccountSelect, bundle);
     }
 
     @Override

@@ -49,7 +49,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         holder.mContactView.setText(mValues.get(position).contactName);
         holder.mBalanceView.setAmount(mValues.get(position).balance.floatValue());
 
-        if (mValues.get(position).balance.floatValue() <= 0) {
+        if (mValues.get(position).balance.floatValue() < 0) {
             holder.mBalanceView.setBaseColor(ContextCompat.getColor(mContext, R.color.owingRed));
             holder.mBalanceView.setDecimalsColor(ContextCompat.getColor(mContext, R.color.owingRed));
             holder.mBalanceView.setSymbolColor(ContextCompat.getColor(mContext, R.color.owingRed));

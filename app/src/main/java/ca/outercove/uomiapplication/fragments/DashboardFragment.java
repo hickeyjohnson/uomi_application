@@ -124,7 +124,7 @@ public class DashboardFragment extends Fragment {
                         try {
                             Float netBal = ((float) response.getDouble("netBalance"));
                             netBalanceTV.setAmount(netBal);
-                            if (netBal <= 0) {
+                            if (netBal < 0) {
                                 netBalanceTV.setBaseColor(ContextCompat.getColor(getContext(), R.color.owingRed));
                                 netBalanceTV.setDecimalsColor(ContextCompat.getColor(getContext(), R.color.owingRed));
                                 netBalanceTV.setSymbolColor(ContextCompat.getColor(getContext(), R.color.owingRed));

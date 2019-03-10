@@ -89,7 +89,6 @@ public class AccountsViewFragment extends Fragment {
         recyclerView = view.findViewById(R.id.accounts_listed);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-        // TODO: exchange AccountsViewContent.ITEMS for the content from Web API
         getUserAccounts();
         //mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
         //recyclerView.setAdapter(mAdapter);

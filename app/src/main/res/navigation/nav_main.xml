@@ -13,13 +13,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="ca.outercove.uomiapplication.fragments.DashboardFragment"
         android:label="Dashboard"
-        tools:layout="@layout/fragment_dashboard">
-        <action
-            android:id="@+id/actionDashboardBackPop"
-            app:destination="@id/navigation_dashboard"
-            app:popUpTo="@id/navigation_dashboard"
-            app:popUpToInclusive="true" />
-    </fragment>
+        tools:layout="@layout/fragment_dashboard"/>
     <fragment
         android:id="@+id/navigation_accounts"
         android:name="ca.outercove.uomiapplication.fragments.AccountsViewFragment"
@@ -34,10 +28,14 @@
         android:id="@+id/navigation_single_account"
         android:name="ca.outercove.uomiapplication.fragments.SingleAccountFragment"
         android:label="Single Account"
-        tools:layout="@layout/fragment_single_account" />
+        tools:layout="@layout/fragment_single_account" >
+        <argument
+            android:name="accountId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
         android:label="Notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications_list" />
 </navigation>
