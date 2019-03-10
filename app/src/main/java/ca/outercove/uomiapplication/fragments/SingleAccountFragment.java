@@ -1,11 +1,14 @@
 package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +16,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.fabiomsr.moneytextview.MoneyTextView;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import ca.outercove.uomiapplication.R;
+import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.TransactionItem;
@@ -31,7 +46,7 @@ import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.Transact
 public class SingleAccountFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_COLUMN_COUNT = "column-count";
+    private static final String ARG_ACCOUNT_ID = "accountId";
     private static final String TITLE = "Transactions";
     private FloatingActionButton fab;
     private TransactionsListAdapter mAdapter;
@@ -39,6 +54,12 @@ public class SingleAccountFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Integer mAccountId;
+
+    private MoneyTextView mBalanceAmountTV;
+    private RecyclerView recyclerView;
+
+    private SharedPreferences pref;
 
     private OnListFragmentInteractionListener mListener;
 
@@ -50,9 +71,6 @@ public class SingleAccountFragment extends Fragment {
     // TODO: Customize parameter initialization
     public static SingleAccountFragment newInstance(int columnCount) {
         SingleAccountFragment fragment = new SingleAccountFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -78,10 +96,14 @@ public class SingleAccountFragment extends Fragment {
         });
         // Set the adapter
         Context context = view.getContext();
-        RecyclerView recyclerView = view.findViewById(R.id.transactionsRecView);
+        this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        this.mBalanceAmountTV = view.findViewById(R.id.accountBalanceAmount);
+        recyclerView = view.findViewById(R.id.transactionsRecView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
-        recyclerView.setAdapter(mAdapter);
+        getSingleAccountInformation();
+//        mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
+//        recyclerView.setAdapter(mAdapter);
+
 
 
         return view;
@@ -104,6 +126,51 @@ public class SingleAccountFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private void getSingleAccountInformation() {
+        Integer accountId = getArguments().getInt("accountId", -1);
+        Integer userId = this.pref.getInt("userId", -1);
+        String url = getString(R.string.base_url) + "/transactions/" + userId.toString() + "/" + accountId.toString();
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                SingleAccountViewContent.ITEMS.clear();
+                try {
+                    Double accountBalance = response.getDouble("account_balance");
+                    mBalanceAmountTV.setAmount(accountBalance.floatValue());
+                    if (accountBalance < 0) {
+                        mBalanceAmountTV.setBaseColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                        mBalanceAmountTV.setDecimalsColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                        mBalanceAmountTV.setSymbolColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                    }
+                    JSONArray transactionItems = response.getJSONArray("transactions_list");
+                    for (int i = 0; i < transactionItems.length(); i++) {
+                        JSONObject transItem = transactionItems.getJSONObject(i);
+                        // TODO: more meaningful payer info than just the user ID
+                        SingleAccountViewContent.ITEMS.add(new TransactionItem(
+                                transItem.getInt("transaction_id"), transItem.getString("trans_label"),
+                                String.valueOf(transItem.getInt("user_owed")) + " paid",
+                                transItem.getDouble("amount")
+                        ));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener, getContext());
+                recyclerView.setAdapter(mAdapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO: error response
+            }
+        }
+        );
+
+        RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     /**
