@@ -203,13 +203,13 @@ public class LoginRegistrationActivity extends AppCompatActivity {
                 editor = pref.edit();
                 try {
                     editor.putInt("userId", response.getInt("user_id"));
+                    editor.commit();
                     Intent intent = new Intent(LoginRegistrationActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                editor.commit();
             }
         }, new Response.ErrorListener() {
             @Override
