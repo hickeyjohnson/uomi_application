@@ -159,7 +159,7 @@ public class SingleAccountFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
+                mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener, getContext());
                 recyclerView.setAdapter(mAdapter);
             }
         }, new Response.ErrorListener() {
