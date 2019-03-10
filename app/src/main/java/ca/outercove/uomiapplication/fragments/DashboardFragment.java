@@ -2,10 +2,12 @@ package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,7 +122,13 @@ public class DashboardFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            netBalanceTV.setAmount((float)response.getDouble("netBalance"));
+                            Float netBal = ((float) response.getDouble("netBalance"));
+                            netBalanceTV.setAmount(netBal);
+                            if (netBal <= 0) {
+                                netBalanceTV.setBaseColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                                netBalanceTV.setDecimalsColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                                netBalanceTV.setSymbolColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+                            }
                         } catch (JSONException e) {
                             Log.e("UOMI", "unexpected JSON exception", e);
                         }

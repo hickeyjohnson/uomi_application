@@ -127,14 +127,16 @@ public class AccountsViewFragment extends Fragment {
                     // Get the JSON object representing the current account
                     try {
                         JSONObject acc = response.getJSONObject(i);
-                        AccountsViewContent.ITEMS.add(new AccountsViewItem(acc.getInt("account_id"), acc.get("account_users").toString(), acc.getDouble("acc_balance")));
+                        // TODO: switch the account users array to a more meaningful name
+                        AccountsViewContent.ITEMS.add(new AccountsViewItem(acc.getInt("account_id"),
+                                acc.get("account_users").toString(), acc.getDouble("acc_balance")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
                 }
 
-                mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
+                mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener, getContext());
                 recyclerView.setAdapter(mAdapter);
             }
         }, new Response.ErrorListener() {
