@@ -114,7 +114,6 @@ public class DashboardFragment extends Fragment {
      * Queries the web api for the net balance of the particular user
      */
     public void setMainBalance() {
-        // TODO: instead of 2 use the current user id
         String url = getString(R.string.base_url) + "/netBalance/" + Integer.toString(this.pref.getInt("userId", -1));
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
