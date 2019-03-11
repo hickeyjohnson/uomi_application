@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -12,13 +13,17 @@ import android.os.Bundle;
 
 import ca.outercove.uomiapplication.R;
 
-
+/**
+ * A fragment used for creating accounts for single users and groups.
+ *
+ */
 public class CreateAccountFragment extends Fragment {
 
     private Switch groupAccountToggle;
     private TextView emailTextView1;
     private TextView emailTextView2;
     private TextView emailTextView3;
+    private Button createButton;
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String TITLE = "Create Account";
@@ -54,25 +59,51 @@ public class CreateAccountFragment extends Fragment {
         emailTextView1 = view.findViewById(R.id.email1);
         emailTextView2 = view.findViewById(R.id.email2);
         emailTextView3 = view.findViewById(R.id.email3);
+        createButton = view.findViewById(R.id.createButton);
         groupAccountToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 switch (buttonView.getId()) {
                     case R.id.groupToggle:
                         if (isChecked == true) {
-                            emailTextView1.setVisibility(View.VISIBLE);
-                            emailTextView2.setVisibility(View.VISIBLE);
-                            emailTextView3.setVisibility(View.VISIBLE);
+                            groupAccountVisible();
                         } else {
-                            emailTextView2.setVisibility(View.INVISIBLE);
-                            emailTextView3.setVisibility(View.INVISIBLE);
+                            singleAccountVisible();
                         }
                         break;
                 }
 
             }
         });
+        createButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Call a create method.
+                createAccount();
+            }
+        });
 
         return view;
+    }
+
+    /**
+     * Method to create account.
+     */
+    private void createAccount(){
+
+    }
+
+    //Sets all but one text field to invisible
+    private void singleAccountVisible() {
+        emailTextView1.setVisibility(View.VISIBLE);
+        emailTextView2.setVisibility(View.INVISIBLE);
+        emailTextView3.setVisibility(View.INVISIBLE);
+    }
+
+    //Sets all text fields to visible
+    private void groupAccountVisible() {
+        emailTextView1.setVisibility(View.VISIBLE);
+        emailTextView2.setVisibility(View.VISIBLE);
+        emailTextView3.setVisibility(View.VISIBLE);
     }
 }
