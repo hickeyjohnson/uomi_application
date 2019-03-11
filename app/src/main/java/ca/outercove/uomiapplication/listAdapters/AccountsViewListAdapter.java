@@ -1,5 +1,6 @@
 package ca.outercove.uomiapplication.listAdapters;
 
+import android.support.annotation.NonNull;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
@@ -35,15 +36,16 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         mContext = context;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_accounts_view_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mAvatarView.setImageResource(R.mipmap.ic_glossy_app_icon);
         holder.mContactView.setText(mValues.get(position).contactName);
@@ -79,7 +81,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         final MoneyTextView mBalanceView;
         AccountsViewItem mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mAvatarView = view.findViewById(R.id.account_contact_avatar);
@@ -92,4 +94,5 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
             return super.toString() + " '" + mContactView.getText() + "'";
         }
     }
+
 }

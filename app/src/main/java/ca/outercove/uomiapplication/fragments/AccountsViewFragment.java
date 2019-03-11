@@ -3,12 +3,14 @@ package ca.outercove.uomiapplication.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +94,21 @@ public class AccountsViewFragment extends Fragment {
         //mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
         //recyclerView.setAdapter(mAdapter);
 
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                //TODO:Delete Account
+                DialogFragment newFrag = DeleteAccountDialogFragment.newInstance(
+                        R.string.delete_account);
+                newFrag.show(getFragmentManager(), "dialog");
+            }
+        }).attachToRecyclerView(recyclerView);
         return view;
     }
 
@@ -162,5 +179,6 @@ public class AccountsViewFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(AccountsViewItem item);
     }
+
 
 }

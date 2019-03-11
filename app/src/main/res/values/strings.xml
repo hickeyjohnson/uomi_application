@@ -45,6 +45,8 @@
     <string name="group_account_prompt">Group Account?</string>
     <string name="cancel">Cancel</string>
     <string name="account_balance_caption">Your balance with this contact:</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="delete_transaction">Delete Transaction</string>
 
 
 
