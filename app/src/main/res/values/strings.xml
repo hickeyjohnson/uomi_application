@@ -61,6 +61,9 @@
     <string name="createTransaction">Add New Transaction</string>
     <string name="itemToAdd">Item to add</string>
     <string name="itemValue">Item Value</string>
+    <string name="create_button">create</string>
+    <string name="group_account_toggle" />
+    <string name="group_account_toggle1">Group Account</string>
 
 
 </resources>

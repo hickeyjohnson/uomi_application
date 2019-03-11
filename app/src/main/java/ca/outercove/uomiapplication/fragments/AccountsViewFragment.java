@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.app.FragmentTransaction;
 
 import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.MainActivity;
@@ -57,16 +58,17 @@ public class AccountsViewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
         fab = view.findViewById(R.id.fabAddAccount);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFrag = CreateAccountDialogFragment.newInstance(
+                Fragment newFrag = CreateAccountFragment.newInstance(
                         R.string.create_account);
-                newFrag.show(getFragmentManager(), "dialog");
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.createAccountLayout, newFrag).commit();
             }
         });
         // Set the adapter
