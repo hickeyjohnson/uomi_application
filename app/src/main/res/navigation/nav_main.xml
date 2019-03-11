@@ -44,6 +44,6 @@
     <fragment
         android:id="@+id/navigationCreateAccount"
         android:name="ca.outercove.uomiapplication.fragments.CreateAccountFragment"
-        android:label="fragment_account_creation"
+        android:label="Create New Account"
         tools:layout="@layout/fragment_account_creation" />
 </navigation>

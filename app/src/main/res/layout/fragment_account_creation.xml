@@ -27,13 +27,13 @@
         android:layout_marginStart="95dp"
         android:layout_marginTop="107dp"
         android:layout_marginEnd="96dp"
+        android:autofillHints=""
+        android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
-        android:text="@string/prompt_email"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupToggle"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/groupToggle" />
 
     <EditText
         android:id="@+id/email2"
@@ -43,16 +43,16 @@
         android:layout_marginTop="156dp"
         android:layout_marginEnd="96dp"
         android:layout_marginBottom="19dp"
+        android:autofillHints=""
+        android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
-        android:text="@string/prompt_email"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/email3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/groupToggle"
-        app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/email3"
@@ -61,13 +61,14 @@
         android:layout_marginStart="95dp"
         android:layout_marginTop="208dp"
         android:layout_marginEnd="96dp"
+        android:autofillHints=""
+        android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
-        android:text="@string/prompt_email"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groupToggle"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/groupToggle" />
 
     <Button
         android:id="@+id/createButton"
@@ -75,13 +76,12 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="161dp"
-        android:layout_marginTop="202dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="154dp"
         android:text="@string/create_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email3" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
