@@ -20,16 +20,20 @@ public class AccountsViewContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= 15; i++) {
-            // TODO: users and stuff
-            addItem(createAccountsViewItem(i, null, null));
-        }
-    }
 
-    private static AccountsViewItem createAccountsViewItem(Integer id, User me, User you) {
-        return new AccountsViewItem(id, "Nathaniel Johnson", findBalance(me, you));
+// SAMPLE VALUES
+//    static {
+//        // Add some sample items.
+//        for (int i = 1; i <= 15; i++) {
+//            // TODO: users and stuff
+//            addItem(createAccountsViewItem(i, null, null));
+//        }
+//    }
+
+
+
+    private static AccountsViewItem createAccountsViewItem(Integer id, String accountName, Double bal) {
+        return new AccountsViewItem(id, accountName, bal);
     }
 
 

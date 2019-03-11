@@ -1,6 +1,8 @@
 package ca.outercove.uomiapplication.listAdapters;
 
 import android.support.annotation.NonNull;
+import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +28,12 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
     private final List<TransactionItem> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private Context mContext;
 
-    public TransactionsListAdapter(List<TransactionItem> items, OnListFragmentInteractionListener listener) {
+    public TransactionsListAdapter(List<TransactionItem> items, OnListFragmentInteractionListener listener, Context context) {
         mValues = items;
         mListener = listener;
+        mContext = context;
     }
 
     @NonNull
@@ -46,6 +50,12 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         holder.mTransPayerView.setText(mValues.get(position).transactionPayer);
         holder.mTransItemView.setText(mValues.get(position).transactionName);
         holder.mValueView.setAmount(mValues.get(position).value.floatValue());
+
+        if (mValues.get(position).value.floatValue() < 0) {
+            holder.mValueView.setBaseColor(ContextCompat.getColor(mContext, R.color.owingRed));
+            holder.mValueView.setDecimalsColor(ContextCompat.getColor(mContext, R.color.owingRed));
+            holder.mValueView.setSymbolColor(ContextCompat.getColor(mContext, R.color.owingRed));
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

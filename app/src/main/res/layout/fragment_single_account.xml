@@ -43,7 +43,6 @@
             android:layout_gravity="center"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            app:amount="1256.56"
             app:baseTextColor="@color/colorPrimary"
             app:baseTextSize="54sp"
             app:decimalDigitsTextSize="30sp"

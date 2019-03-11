@@ -1,8 +1,10 @@
 package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -12,9 +14,21 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.app.FragmentTransaction;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.MainActivity;
+import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
@@ -32,9 +46,11 @@ public class AccountsViewFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String TITLE = "Accounts";
     private FloatingActionButton fab;
+    private RecyclerView recyclerView;
     // TODO: Customize parameters
     private OnListFragmentInteractionListener mListener;
     private AccountsViewListAdapter mAdapter;
+    private SharedPreferences pref;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -59,24 +75,24 @@ public class AccountsViewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
         fab = view.findViewById(R.id.fabAddAccount);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFrag = CreateAccountDialogFragment.newInstance(
-                        R.string.create_account);
-                newFrag.show(getFragmentManager(), "dialog");
+                Navigation.findNavController(v).navigate(R.id.action_navigation_accounts_to_createAccountFragment);
             }
         });
         // Set the adapter
         Context context = view.getContext();
-        RecyclerView recyclerView = view.findViewById(R.id.accounts_listed);
+        recyclerView = view.findViewById(R.id.accounts_listed);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
-        recyclerView.setAdapter(mAdapter);
+        this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        getUserAccounts();
+        //mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
+        //recyclerView.setAdapter(mAdapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -112,6 +128,41 @@ public class AccountsViewFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    private void getUserAccounts() {
+        String url = getString(R.string.base_url) + "/accounts/" + Integer.toString(this.pref.getInt("userId", -1));
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                AccountsViewContent.ITEMS.clear();
+                for (int i = 0; i < response.length(); i++) {
+                    // Get the JSON object representing the current account
+                    try {
+                        JSONObject acc = response.getJSONObject(i);
+                        // TODO: switch the account users array to a more meaningful name
+                        AccountsViewContent.ITEMS.add(new AccountsViewItem(acc.getInt("account_id"),
+                                acc.get("account_users").toString(), acc.getDouble("acc_balance")));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener, getContext());
+                recyclerView.setAdapter(mAdapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO
+            }
+        }
+        );
+
+        RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
     }
 
     /**

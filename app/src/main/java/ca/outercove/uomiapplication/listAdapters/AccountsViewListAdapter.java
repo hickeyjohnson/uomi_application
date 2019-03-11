@@ -1,6 +1,9 @@
 package ca.outercove.uomiapplication.listAdapters;
 
 import android.support.annotation.NonNull;
+import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +28,12 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
 
     private final List<AccountsViewItem> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private Context mContext;
 
-    public AccountsViewListAdapter(List<AccountsViewItem> items, OnListFragmentInteractionListener listener) {
+    public AccountsViewListAdapter(List<AccountsViewItem> items, OnListFragmentInteractionListener listener, Context context) {
         mValues = items;
         mListener = listener;
+        mContext = context;
     }
 
     @NonNull
@@ -42,9 +47,15 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mAvatarView.setImageResource(R.drawable.uomi3);
+        holder.mAvatarView.setImageResource(R.mipmap.ic_glossy_app_icon);
         holder.mContactView.setText(mValues.get(position).contactName);
         holder.mBalanceView.setAmount(mValues.get(position).balance.floatValue());
+
+        if (mValues.get(position).balance.floatValue() < 0) {
+            holder.mBalanceView.setBaseColor(ContextCompat.getColor(mContext, R.color.owingRed));
+            holder.mBalanceView.setDecimalsColor(ContextCompat.getColor(mContext, R.color.owingRed));
+            holder.mBalanceView.setSymbolColor(ContextCompat.getColor(mContext, R.color.owingRed));
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
