@@ -121,15 +121,6 @@
                             <option name="y" value="-355" />
                           </Point>
                         </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="actionDashboardBackPop">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>

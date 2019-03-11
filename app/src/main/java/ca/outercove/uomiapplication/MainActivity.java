@@ -1,11 +1,15 @@
 package ca.outercove.uomiapplication;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import androidx.annotation.*;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 
 import androidx.navigation.NavController;
@@ -28,12 +32,17 @@ SingleAccountFragment.OnListFragmentInteractionListener {
 
     protected NavController mNavController;
 
+    private SharedPreferences pref;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav);
 
+        this.pref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        System.out.println(this.pref.getInt("userId", -1));
         // Set up the app bar
         Toolbar appBar = findViewById(R.id.uomiAppBar);
         setSupportActionBar(appBar);
@@ -67,7 +76,9 @@ SingleAccountFragment.OnListFragmentInteractionListener {
 
     @Override
     public void onListFragmentInteraction(AccountsViewItem item) {
-        mNavController.navigate(R.id.actionAccountSelect);
+        Bundle bundle = new Bundle();
+        bundle.putInt("accountId", item.id);
+        mNavController.navigate(R.id.actionAccountSelect, bundle);
     }
 
     @Override
