@@ -23,6 +23,9 @@
             android:id="@+id/actionAccountSelect"
             app:destination="@id/navigation_single_account"
             app:popUpTo="@+id/navigation_accounts" />
+        <action
+            android:id="@+id/action_navigation_accounts_to_createAccountFragment"
+            app:destination="@id/navigationCreateAccount" />
     </fragment>
     <fragment
         android:id="@+id/navigation_single_account"
@@ -38,4 +41,9 @@
         android:name="ca.outercove.uomiapplication.fragments.NotificationsFragment"
         android:label="Notifications"
         tools:layout="@layout/fragment_notifications_list" />
+    <fragment
+        android:id="@+id/navigationCreateAccount"
+        android:name="ca.outercove.uomiapplication.fragments.CreateAccountFragment"
+        android:label="Create New Account"
+        tools:layout="@layout/fragment_account_creation" />
 </navigation>

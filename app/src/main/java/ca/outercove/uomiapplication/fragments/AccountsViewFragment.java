@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.support.v4.app.FragmentTransaction;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -72,16 +73,14 @@ public class AccountsViewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_accounts_view_list, container, false);
         fab = view.findViewById(R.id.fabAddAccount);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFrag = CreateAccountDialogFragment.newInstance(
-                        R.string.create_account);
-                newFrag.show(getFragmentManager(), "dialog");
+                Navigation.findNavController(v).navigate(R.id.action_navigation_accounts_to_createAccountFragment);
             }
         });
         // Set the adapter
