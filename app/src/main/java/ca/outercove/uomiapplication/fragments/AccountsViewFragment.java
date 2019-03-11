@@ -65,10 +65,7 @@ public class AccountsViewFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment newFrag = CreateAccountFragment.newInstance(
-                        R.string.create_account);
-                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.createAccountLayout, newFrag).commit();
+                Navigation.findNavController(v).navigate(R.id.action_navigation_accounts_to_createAccountFragment);
             }
         });
         // Set the adapter
