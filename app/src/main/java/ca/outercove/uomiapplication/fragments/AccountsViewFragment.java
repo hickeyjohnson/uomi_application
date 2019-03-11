@@ -129,4 +129,5 @@ public class AccountsViewFragment extends Fragment {
         void onListFragmentInteraction(AccountsViewItem item);
     }
 
+
 }

@@ -1,5 +1,6 @@
 package ca.outercove.uomiapplication.listAdapters;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,15 +32,16 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         mListener = listener;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_single_transaction, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mTransPayerView.setText(mValues.get(position).transactionPayer);
         holder.mTransItemView.setText(mValues.get(position).transactionName);
@@ -63,14 +65,14 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public final View mView;
-        public final TextView mTransPayerView;
-        public final TextView mTransItemView;
-        public final MoneyTextView mValueView;
-        public TransactionItem mItem;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final View mView;
+        final TextView mTransPayerView;
+        final TextView mTransItemView;
+        final MoneyTextView mValueView;
+        TransactionItem mItem;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
             mView = view;
             mTransPayerView = view.findViewById(R.id.transaction_userPaid_id);
@@ -78,4 +80,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             mValueView = view.findViewById(R.id.transaction_value_id);
         }
     }
+
+
+
 }

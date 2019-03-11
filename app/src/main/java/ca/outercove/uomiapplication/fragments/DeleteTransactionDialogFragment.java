@@ -4,11 +4,16 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 
 import ca.outercove.uomiapplication.R;
 
+/**
+ * Dialog Fragment for deleting a transaction. This is shown when you swipe right on an transaction.
+ *
+ */
 public class DeleteTransactionDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

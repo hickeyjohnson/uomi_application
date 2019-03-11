@@ -8,10 +8,16 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 
 import ca.outercove.uomiapplication.R;
+import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 
+/**
+ * Dialog Fragment for deleting an account. This is shown when you swipe right on an account.
+ *
+ */
 public class DeleteAccountDialogFragment extends DialogFragment {
 
-        @Override
+
+    @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 

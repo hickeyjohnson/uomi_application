@@ -137,4 +137,6 @@ public class SingleAccountFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(TransactionItem item);
     }
+
+
 }
