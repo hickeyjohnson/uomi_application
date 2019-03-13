@@ -14,6 +14,7 @@ import org.fabiomsr.moneytextview.MoneyTextView;
 
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.TransactionItem;
+import ca.outercove.uomiapplication.fragments.DeleteTransactionDialogFragment;
 import ca.outercove.uomiapplication.fragments.SingleAccountFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.ViewHolder> {
 
-    private final List<TransactionItem> mValues;
+    public List<TransactionItem> mValues;
     private final OnListFragmentInteractionListener mListener;
     private Context mContext;
 
@@ -74,13 +75,18 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         return mValues.size();
     }
 
+    public void remove(int position) {
+        mValues.remove(position);
+        this.notifyDataSetChanged();
+    }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         final View mView;
         final TextView mTransPayerView;
         final TextView mTransItemView;
         final MoneyTextView mValueView;
-        TransactionItem mItem;
+        public TransactionItem mItem;
 
         ViewHolder(View view) {
             super(view);
