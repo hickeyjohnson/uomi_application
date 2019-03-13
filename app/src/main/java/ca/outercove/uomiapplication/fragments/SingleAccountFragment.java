@@ -180,6 +180,18 @@ public class SingleAccountFragment extends Fragment {
                 }
                 mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener, getContext());
                 recyclerView.setAdapter(mAdapter);
+                // Hide the FAB when user scrolls down
+                recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                        super.onScrolled(recyclerView, dx, dy);
+                        if (dy > 0 && fab.getVisibility() == View.VISIBLE) {
+                            fab.hide();
+                        } else if (dy < 0 && fab.getVisibility() != View.VISIBLE) {
+                            fab.show();
+                        }
+                    }
+                });
             }
         }, new Response.ErrorListener() {
             @Override
