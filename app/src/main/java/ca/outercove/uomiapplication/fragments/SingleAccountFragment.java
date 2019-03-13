@@ -30,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
@@ -91,9 +92,7 @@ public class SingleAccountFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFrag = AddTransactionDialogFragment.newInstance(
-                        R.string.createTransaction);
-                newFrag.show(getFragmentManager(), "dialog");
+                Navigation.findNavController(v).navigate(R.id.actionCreateTransaction);
             }
         });
         // Set the adapter
@@ -204,6 +203,5 @@ public class SingleAccountFragment extends Fragment {
         // TODO: Update argument type and name
         void onListFragmentInteraction(TransactionItem item);
     }
-
 
 }

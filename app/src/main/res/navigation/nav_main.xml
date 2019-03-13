@@ -35,6 +35,9 @@
         <argument
             android:name="accountId"
             app:argType="integer" />
+        <action
+            android:id="@+id/actionCreateTransaction"
+            app:destination="@id/createTransactionFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
@@ -46,4 +49,9 @@
         android:name="ca.outercove.uomiapplication.fragments.CreateAccountFragment"
         android:label="Create New Account"
         tools:layout="@layout/fragment_account_creation" />
+    <fragment
+        android:id="@+id/createTransactionFragment"
+        android:name="ca.outercove.uomiapplication.fragments.CreateTransactionFragment"
+        android:label="Create New Transaction"
+        tools:layout="@layout/fragment_create_transaction" />
 </navigation>

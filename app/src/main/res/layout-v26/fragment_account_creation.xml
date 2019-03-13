@@ -15,13 +15,13 @@
         android:layout_marginEnd="165dp"
         android:layout_marginBottom="107dp"
         android:text="@string/group_account_toggle1"
-        app:layout_constraintBottom_toTopOf="@+id/email1"
+        app:layout_constraintBottom_toTopOf="@+id/transaction_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email1"
+        android:id="@+id/transaction_title"
         android:layout_width="220dp"
         android:layout_height="43dp"
         android:layout_marginStart="95dp"
@@ -46,7 +46,7 @@
         android:inputType="textEmailAddress"
         android:text="@string/prompt_email"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/email3"
+        app:layout_constraintBottom_toTopOf="@+id/transaction_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/email3"
+        android:id="@+id/transaction_value"
         android:layout_width="220dp"
         android:layout_height="43dp"
         android:layout_marginStart="95dp"
@@ -82,6 +82,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email3" />
+        app:layout_constraintTop_toBottomOf="@+id/transaction_value" />
 
 </android.support.constraint.ConstraintLayout>

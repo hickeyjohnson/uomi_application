@@ -91,6 +91,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="createTransactionFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="345" />
+                            <option name="y" value="-670" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="navigationCreateAccount">
                     <value>
                       <LayoutPositions>
@@ -173,6 +185,15 @@
                             <option name="x" value="25" />
                             <option name="y" value="-639" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="actionCreateTransaction">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
