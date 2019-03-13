@@ -30,12 +30,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.TransactionItem;
+
+import static java.lang.Math.abs;
 
 
 /**
@@ -46,7 +50,8 @@ import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.Transact
  * Use the {@link SingleAccountFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SingleAccountFragment extends Fragment {
+public class SingleAccountFragment extends Fragment
+        implements DeleteTransactionDialogFragment.DeleteTransactionDialogListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_ACCOUNT_ID = "accountId";
@@ -119,13 +124,19 @@ public class SingleAccountFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 //TODO:Delete Transaction
-                DialogFragment newFrag = DeleteTransactionDialogFragment.newInstance(
-                        R.string.delete_transaction);
-                newFrag.show(getFragmentManager(), "dialog");
-                ((DeleteTransactionDialogFragment) newFrag).setAdapter(mAdapter);
+                showDeleteWarningDialog(viewHolder, direction);
             }
         }).attachToRecyclerView(recyclerView);
         return view;
+    }
+
+    void showDeleteWarningDialog(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+        TransactionsListAdapter.ViewHolder viewHolder2 = (TransactionsListAdapter.ViewHolder) viewHolder;
+        DialogFragment newFrag = DeleteTransactionDialogFragment.newInstance(
+                R.string.delete_transaction, viewHolder2);
+        newFrag.show(getFragmentManager(), "dialog");
+        ((DeleteTransactionDialogFragment) newFrag).setAdapter(mAdapter);
+        ((DeleteTransactionDialogFragment) newFrag).setListener(this);
     }
 
 
@@ -156,7 +167,8 @@ public class SingleAccountFragment extends Fragment {
                 Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                SingleAccountViewContent.ITEMS.clear();
+                ArrayList<TransactionItem> transactionItemArrayList = new ArrayList<>();
+                SingleAccountViewContent.ITEM_MAP.clear();
                 try {
                     Double accountBalance = response.getDouble("account_balance");
                     mBalanceAmountTV.setAmount(accountBalance.floatValue());
@@ -169,16 +181,19 @@ public class SingleAccountFragment extends Fragment {
                     for (int i = 0; i < transactionItems.length(); i++) {
                         JSONObject transItem = transactionItems.getJSONObject(i);
                         // TODO: more meaningful payer info than just the user ID
-                        SingleAccountViewContent.ITEMS.add(new TransactionItem(
+                        TransactionItem newItem = new TransactionItem(
                                 transItem.getInt("transaction_id"), transItem.getString("trans_label"),
                                 String.valueOf(transItem.getInt("user_owed")) + " paid",
                                 transItem.getDouble("amount")
-                        ));
+                        );
+                        transactionItemArrayList.add(newItem);
+                        SingleAccountViewContent.ITEM_MAP.put(newItem.id, newItem);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener, getContext());
+                mAdapter = new TransactionsListAdapter(transactionItemArrayList, mListener, getContext());
                 recyclerView.setAdapter(mAdapter);
                 // Hide the FAB when user scrolls down
                 recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -202,6 +217,24 @@ public class SingleAccountFragment extends Fragment {
         );
 
         RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
+    }
+
+    @Override
+    public void onTransactionDelete(Double amount) {
+        if (abs(mBalanceAmountTV.getAmount() - amount) < 0.01)
+            mBalanceAmountTV.setAmount(0);
+        else {
+            mBalanceAmountTV.setAmount((float)(mBalanceAmountTV.getAmount() - amount));
+        }
+        if (mBalanceAmountTV.getAmount() < 0) {
+            mBalanceAmountTV.setBaseColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+            mBalanceAmountTV.setDecimalsColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+            mBalanceAmountTV.setSymbolColor(ContextCompat.getColor(getContext(), R.color.owingRed));
+        } else {
+            mBalanceAmountTV.setBaseColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+            mBalanceAmountTV.setDecimalsColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+            mBalanceAmountTV.setSymbolColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        }
     }
 
     /**
