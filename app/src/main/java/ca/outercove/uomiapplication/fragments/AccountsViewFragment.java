@@ -107,6 +107,7 @@ public class AccountsViewFragment extends Fragment {
                 DialogFragment newFrag = DeleteAccountDialogFragment.newInstance(
                         R.string.delete_account);
                 newFrag.show(getFragmentManager(), "dialog");
+                ((DeleteAccountDialogFragment) newFrag).setAdapter(mAdapter);
             }
         }).attachToRecyclerView(recyclerView);
         return view;

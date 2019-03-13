@@ -17,6 +17,8 @@ import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 public class DeleteAccountDialogFragment extends DialogFragment {
 
 
+    private AccountsViewListAdapter adapter;
+
     @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -36,6 +38,7 @@ public class DeleteAccountDialogFragment extends DialogFragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             DeleteAccountDialogFragment.this.getDialog().cancel();
+                            adapter.notifyDataSetChanged();
                         }
                     });
 
@@ -55,6 +58,11 @@ public class DeleteAccountDialogFragment extends DialogFragment {
          */
         public DeleteAccountDialogFragment() {
 
+        }
+
+        //Takes the adapter for Accounts view Fragment
+        public void setAdapter(AccountsViewListAdapter adapter) {
+            this.adapter = adapter;
         }
 
 }

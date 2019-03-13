@@ -9,12 +9,16 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 
 import ca.outercove.uomiapplication.R;
+import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
 
 /**
  * Dialog Fragment for deleting a transaction. This is shown when you swipe right on an transaction.
  *
  */
 public class DeleteTransactionDialogFragment extends DialogFragment {
+
+    private TransactionsListAdapter adapter;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -34,6 +38,7 @@ public class DeleteTransactionDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         DeleteTransactionDialogFragment.this.getDialog().cancel();
+                        adapter.notifyDataSetChanged();
                     }
                 });
 
@@ -55,4 +60,8 @@ public class DeleteTransactionDialogFragment extends DialogFragment {
 
     }
 
+    //Takes the adapter for SingleAccountFragment
+    public void setAdapter(TransactionsListAdapter adapter) {
+        this.adapter = adapter;
+    }
 }
