@@ -53,5 +53,13 @@
         android:id="@+id/createTransactionFragment"
         android:name="ca.outercove.uomiapplication.fragments.CreateTransactionFragment"
         android:label="Create New Transaction"
-        tools:layout="@layout/fragment_create_transaction" />
+        tools:layout="@layout/fragment_create_transaction" >
+        <argument
+            android:name="accountId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/postTransactionCreation"
+            app:destination="@id/navigation_single_account"
+            app:popUpTo="@+id/navigation_accounts" />
+    </fragment>
 </navigation>

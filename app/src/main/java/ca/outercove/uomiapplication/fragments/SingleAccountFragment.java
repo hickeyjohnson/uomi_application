@@ -92,7 +92,9 @@ public class SingleAccountFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.actionCreateTransaction);
+                Bundle bundle = new Bundle();
+                bundle.putInt("accountId", getArguments().getInt("accountId"));
+                Navigation.findNavController(v).navigate(R.id.actionCreateTransaction, bundle);
             }
         });
         // Set the adapter

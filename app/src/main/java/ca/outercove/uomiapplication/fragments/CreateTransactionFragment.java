@@ -1,14 +1,27 @@
 package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import ca.outercove.uomiapplication.R;
+import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +40,12 @@ public class CreateTransactionFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText mTransactionTitle;
+    private EditText mTransactionValue;
+    private Button mCreateTransactionBtn;
+
+    private SharedPreferences pref;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,15 +83,58 @@ public class CreateTransactionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_create_transaction, container, false);
+        this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        this.mTransactionTitle = view.findViewById(R.id.transDesc);
+        this.mTransactionValue = view.findViewById(R.id.transVal);
+        this.mCreateTransactionBtn = view.findViewById(R.id.createTransButton);
+        this.mCreateTransactionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hide keyboard and add transaction
+                InputMethodManager inputManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+                onCreateTransaction(getArguments().getInt("accountId"),
+                        mTransactionTitle.getText().toString(), Double.valueOf(mTransactionValue.getText().toString()));
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_transaction, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+    public void onCreateTransaction(final Integer accountId, String title, Double value) {
+        String url = getString(R.string.base_url) + "/transactions/" + Integer.toString(pref.getInt("userId", 0)) + "/" + accountId.toString();
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("user_id", pref.getInt("userId", -1));
+            jsonObject.put("trans_title", title);
+            jsonObject.put("trans_value", value);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
+        JsonObjectRequest createTransactionRequest = new JsonObjectRequest(
+                Request.Method.POST, url, jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                if (mListener != null) {
+                    mListener.onFragmentInteraction(accountId);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO error handling
+            }
+        }
+        );
+
+        RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(createTransactionRequest);
+
+
     }
 
     @Override
@@ -104,6 +166,6 @@ public class CreateTransactionFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Integer accountId);
     }
 }

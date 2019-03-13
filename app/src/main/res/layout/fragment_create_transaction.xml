@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/transaction_title"
+        android:id="@+id/transDesc"
         android:layout_width="220dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.247" />
 
     <EditText
-        android:id="@+id/transaction_value"
+        android:id="@+id/transVal"
         android:layout_width="220dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
@@ -38,11 +38,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transaction_title"
+        app:layout_constraintTop_toBottomOf="@+id/transDesc"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/createButton"
+        android:id="@+id/createTransButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -54,6 +54,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transaction_value" />
+        app:layout_constraintTop_toBottomOf="@+id/transVal" />
 
 </android.support.constraint.ConstraintLayout>

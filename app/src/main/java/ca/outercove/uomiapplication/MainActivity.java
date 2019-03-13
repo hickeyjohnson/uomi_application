@@ -57,7 +57,13 @@ CreateTransactionFragment.OnFragmentInteractionListener {
         mNavController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                setActionBarTitle((String)destination.getLabel());
+                // If there is an account name, make it the title, otherwise use Fragment label
+                try {
+                    Integer accountName = arguments.getInt("accountId");
+                    setActionBarTitle(accountName.toString());
+                } catch (NullPointerException e) {
+                    setActionBarTitle((String)destination.getLabel());
+                }
             }
         });
     }
@@ -89,7 +95,9 @@ CreateTransactionFragment.OnFragmentInteractionListener {
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public void onFragmentInteraction(Integer accId) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("accountId", accId);
+        mNavController.navigate(R.id.postTransactionCreation, bundle);
     }
 }
