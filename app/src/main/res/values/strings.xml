@@ -49,7 +49,6 @@
     <string name="delete_transaction">Delete Transaction</string>
 
 
-
     <string name="facebook_app_id">483083305556412</string>
     <string name="fb_login_protocol_scheme">fb483083305556412</string>
     <string name="notification_example_text">You owe Nathaniel Johnson $1,000.</string>

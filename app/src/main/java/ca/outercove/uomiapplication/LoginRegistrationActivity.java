@@ -183,11 +183,6 @@ public class LoginRegistrationActivity extends AppCompatActivity {
         JSONObject userInfo = new JSONObject();
         String url = getString(R.string.base_url) + "/users";
         try {
-            System.out.println(userInfo.toString(2));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        try {
             userInfo.put("email", pref.getString("email", null));
             userInfo.put("pw", pref.getString("pw", null));
             userInfo.put("first_name", pref.getString("firstName", null));

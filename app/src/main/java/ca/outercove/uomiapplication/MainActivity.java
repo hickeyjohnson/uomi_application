@@ -19,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
+import ca.outercove.uomiapplication.fragments.CreateTransactionFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnListFragmentInteractionListener,
 DashboardFragment.OnFragmentInteractionListener,
-SingleAccountFragment.OnListFragmentInteractionListener {
+SingleAccountFragment.OnListFragmentInteractionListener,
+CreateTransactionFragment.OnFragmentInteractionListener {
 
     protected NavController mNavController;
 
@@ -55,7 +57,13 @@ SingleAccountFragment.OnListFragmentInteractionListener {
         mNavController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                setActionBarTitle((String)destination.getLabel());
+                // If there is an account name, make it the title, otherwise use Fragment label
+                try {
+                    Integer accountName = arguments.getInt("accountId");
+                    setActionBarTitle(accountName.toString());
+                } catch (NullPointerException e) {
+                    setActionBarTitle((String)destination.getLabel());
+                }
             }
         });
     }
@@ -86,4 +94,10 @@ SingleAccountFragment.OnListFragmentInteractionListener {
 
     }
 
+    @Override
+    public void onFragmentInteraction(Integer accId) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("accountId", accId);
+        mNavController.navigate(R.id.postTransactionCreation, bundle);
+    }
 }

@@ -56,9 +56,9 @@ public class CreateAccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account_creation, container, false);
         groupAccountToggle = view.findViewById(R.id.groupToggle);
-        emailTextView1 = view.findViewById(R.id.email1);
+        emailTextView1 = view.findViewById(R.id.transDesc);
         emailTextView2 = view.findViewById(R.id.email2);
-        emailTextView3 = view.findViewById(R.id.email3);
+        emailTextView3 = view.findViewById(R.id.transVal);
         createButton = view.findViewById(R.id.createButton);
         groupAccountToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
