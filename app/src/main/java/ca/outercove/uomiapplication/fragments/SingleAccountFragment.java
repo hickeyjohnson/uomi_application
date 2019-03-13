@@ -121,6 +121,7 @@ public class SingleAccountFragment extends Fragment {
                 DialogFragment newFrag = DeleteTransactionDialogFragment.newInstance(
                         R.string.delete_transaction);
                 newFrag.show(getFragmentManager(), "dialog");
+                ((DeleteTransactionDialogFragment) newFrag).setAdapter(mAdapter);
             }
         }).attachToRecyclerView(recyclerView);
         return view;
