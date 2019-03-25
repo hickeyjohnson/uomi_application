@@ -22,6 +22,8 @@
         <action
             android:id="@+id/actionAccountSelect"
             app:destination="@id/navigation_single_account"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/navigation_accounts" />
         <action
             android:id="@+id/action_navigation_accounts_to_createAccountFragment"
@@ -37,7 +39,9 @@
             app:argType="integer" />
         <action
             android:id="@+id/actionCreateTransaction"
-            app:destination="@id/createTransactionFragment" />
+            app:destination="@id/createTransactionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
@@ -48,7 +52,11 @@
         android:id="@+id/navigationCreateAccount"
         android:name="ca.outercove.uomiapplication.fragments.CreateAccountFragment"
         android:label="Create New Account"
-        tools:layout="@layout/fragment_account_creation" />
+        tools:layout="@layout/fragment_account_creation" >
+        <action
+            android:id="@+id/action_return_from_acc_create"
+            app:destination="@id/navigation_accounts" />
+    </fragment>
     <fragment
         android:id="@+id/createTransactionFragment"
         android:name="ca.outercove.uomiapplication.fragments.CreateTransactionFragment"
@@ -60,6 +68,7 @@
         <action
             android:id="@+id/postTransactionCreation"
             app:destination="@id/navigation_single_account"
+            app:enterAnim="@anim/nav_default_exit_anim"
             app:popUpTo="@+id/navigation_accounts" />
     </fragment>
 </navigation>

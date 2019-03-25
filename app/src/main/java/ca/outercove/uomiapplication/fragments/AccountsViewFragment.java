@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.navigation.Navigation;
+import ca.outercove.uomiapplication.FormattingHelper;
 import ca.outercove.uomiapplication.MainActivity;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
@@ -143,9 +144,12 @@ public class AccountsViewFragment extends Fragment {
                     // Get the JSON object representing the current account
                     try {
                         JSONObject acc = response.getJSONObject(i);
+                        JSONArray realNames = acc.getJSONArray("real_names");
+                        // Form string for real names
+                        String realNamesFormatted = FormattingHelper.commaSeparate(realNames);
                         // TODO: switch the account users array to a more meaningful name
                         AccountsViewContent.ITEMS.add(new AccountsViewItem(acc.getInt("account_id"),
-                                acc.get("account_users").toString(), acc.getDouble("acc_balance")));
+                                realNamesFormatted, acc.getDouble("acc_balance")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
