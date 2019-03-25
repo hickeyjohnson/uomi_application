@@ -102,7 +102,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_createTransactionFragment_to_navigation_single_account">
+                            <entry key="postTransactionCreation">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -117,9 +117,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-154" />
+                            <option name="y" value="-1040" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_return_from_acc_create">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -155,8 +164,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-485" />
-                            <option name="y" value="-355" />
+                            <option name="x" value="-850" />
+                            <option name="y" value="-644" />
                           </Point>
                         </option>
                       </LayoutPositions>
