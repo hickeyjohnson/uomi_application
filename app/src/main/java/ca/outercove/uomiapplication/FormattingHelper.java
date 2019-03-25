@@ -7,12 +7,12 @@ import org.json.JSONException;
 public class FormattingHelper {
 
     public static String commaSeparate(JSONArray items) {
-        String formatted = "";
+        StringBuilder formatted = new StringBuilder();
 
         // Iterate through the itemset adding ", " after each element except the last
         for (int i = 0; i < items.length() - 1; i++) {
             try {
-                formatted += items.getString(i) + ", ";
+                formatted.append(items.getString(i)).append(", ");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -20,11 +20,11 @@ public class FormattingHelper {
 
         // Add in the last item with no separator
         try {
-            formatted += items.getString(items.length() - 1);
+            formatted.append(items.getString(items.length() - 1));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        return formatted;
+        return formatted.toString();
     }
 }
