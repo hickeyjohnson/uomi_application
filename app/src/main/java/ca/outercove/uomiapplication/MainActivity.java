@@ -1,11 +1,8 @@
 package ca.outercove.uomiapplication;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import androidx.annotation.*;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -16,14 +13,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.CreateTransactionFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
-import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
-import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
+import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
