@@ -56,8 +56,8 @@ CreateTransactionFragment.OnFragmentInteractionListener {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 // If there is an account name, make it the title, otherwise use Fragment label
                 try {
-                    Integer accountName = arguments.getInt("accountId");
-                    setActionBarTitle(accountName.toString());
+                    String accountName = arguments.getString("otherAccountUsers");
+                    setActionBarTitle(accountName);
                 } catch (NullPointerException e) {
                     setActionBarTitle((String)destination.getLabel());
                 }
@@ -83,6 +83,7 @@ CreateTransactionFragment.OnFragmentInteractionListener {
     public void onListFragmentInteraction(AccountsViewItem item) {
         Bundle bundle = new Bundle();
         bundle.putInt("accountId", item.id);
+        bundle.putString("otherAccountUsers", item.contactName);
         mNavController.navigate(R.id.actionAccountSelect, bundle);
     }
 

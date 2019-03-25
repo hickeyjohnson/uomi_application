@@ -42,6 +42,10 @@
             app:destination="@id/createTransactionFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="otherAccountUsers"
+            app:argType="string"
+            android:defaultValue="SingleAccountView" />
     </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
