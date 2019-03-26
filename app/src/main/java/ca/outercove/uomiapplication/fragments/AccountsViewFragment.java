@@ -1,6 +1,6 @@
 package ca.outercove.uomiapplication.fragments;
 
-import android.app.ActionBar;
+import android.accounts.Account;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import androidx.navigation.Navigation;
+import ca.outercove.uomiapplication.FormattingHelper;
 import ca.outercove.uomiapplication.MainActivity;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
@@ -42,7 +43,8 @@ import android.support.v7.widget.Toolbar;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class AccountsViewFragment extends Fragment {
+public class AccountsViewFragment extends Fragment
+                implements DeleteAccountDialogFragment.DeleteAccountDialogListener {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -108,13 +110,24 @@ public class AccountsViewFragment extends Fragment {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 //TODO:Delete Account
-                DialogFragment newFrag = DeleteAccountDialogFragment.newInstance(
-                        R.string.delete_account);
-                newFrag.show(getFragmentManager(), "dialog");
-                ((DeleteAccountDialogFragment) newFrag).setAdapter(mAdapter);
+                showAccountDeleteWarningDialog(viewHolder);
             }
         }).attachToRecyclerView(recyclerView);
         return view;
+    }
+
+    /**
+     * Will display a dialog box prompting the user if they truly wish to delete the account
+     * @param viewHolder
+     */
+    void showAccountDeleteWarningDialog(@NonNull RecyclerView.ViewHolder viewHolder) {
+        AccountsViewListAdapter.ViewHolder viewHolder2 = (AccountsViewListAdapter.ViewHolder) viewHolder;
+        DialogFragment newFrag = DeleteAccountDialogFragment.newInstance(
+                R.string.delete_account, viewHolder2);
+        newFrag.show(getFragmentManager(), "dialog");
+        ((DeleteAccountDialogFragment) newFrag).setAdapter(mAdapter);
+        ((DeleteAccountDialogFragment) newFrag).setListener(this);
+
     }
 
 
@@ -147,9 +160,12 @@ public class AccountsViewFragment extends Fragment {
                     // Get the JSON object representing the current account
                     try {
                         JSONObject acc = response.getJSONObject(i);
+                        JSONArray realNames = acc.getJSONArray("real_names");
+                        // Form string for real names
+                        String realNamesFormatted = FormattingHelper.commaSeparate(realNames);
                         // TODO: switch the account users array to a more meaningful name
                         AccountsViewContent.ITEMS.add(new AccountsViewItem(acc.getInt("account_id"),
-                                acc.get("account_users").toString(), acc.getDouble("acc_balance")));
+                                realNamesFormatted, acc.getDouble("acc_balance")));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -168,6 +184,14 @@ public class AccountsViewFragment extends Fragment {
         );
 
         RequestQueueSingleton.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
+    }
+
+    /**
+     * Callback method from the dialog asking to confirm account deletion
+     */
+    @Override
+    public void onAccountDelete() {
+
     }
 
     /**

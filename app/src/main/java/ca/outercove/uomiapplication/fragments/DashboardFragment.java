@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -43,6 +44,7 @@ public class DashboardFragment extends Fragment {
     private SharedPreferences pref;
 
     private MoneyTextView netBalanceTV;
+    private TextView welcomeTV;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -90,7 +92,11 @@ public class DashboardFragment extends Fragment {
             mListener.onFragmentInteraction(TITLE);
         }
         netBalanceTV = view.findViewById(R.id.netBalanceAmnt);
+        welcomeTV = view.findViewById(R.id.dashboardBalanceCaption);
         this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String welcomeString = "Welcome to uomi, " + this.pref.getString("firstName", "user") +
+                "!\nYour net balance is...";
+        welcomeTV.setText(welcomeString);
         setMainBalance();
 
         return view;
