@@ -8,6 +8,13 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.MenuItem;
+import android.support.v4.app.NavUtils;
+import androidx.navigation.ui.AppBarConfiguration;
+import android.content.Intent;
+
+
 
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -32,6 +39,7 @@ CreateTransactionFragment.OnFragmentInteractionListener,
 CreateAccountFragment.OnFragmentInteractionListener {
 
     protected NavController mNavController;
+    protected AppBarConfiguration appBarConfiguration;
 
     private SharedPreferences pref;
 
@@ -47,10 +55,18 @@ CreateAccountFragment.OnFragmentInteractionListener {
         // Set up the app bar
         Toolbar appBar = findViewById(R.id.uomiAppBar);
         setSupportActionBar(appBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         // Retrieve NavController and setup the Navigation using nav_main
         mNavController = Navigation.findNavController(findViewById(R.id.nav_host_fragment));
+        AppBarConfiguration.Builder builder = new AppBarConfiguration.Builder(mNavController.getGraph());
+        appBarConfiguration = builder.build();
+
+
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+        NavigationUI.setupActionBarWithNavController(this,  mNavController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigation, mNavController);
 
         mNavController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
@@ -67,6 +83,14 @@ CreateAccountFragment.OnFragmentInteractionListener {
         });
     }
 
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+       return mNavController.navigateUp() || super.onSupportNavigateUp();
+    }
+
+
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
@@ -79,6 +103,8 @@ CreateAccountFragment.OnFragmentInteractionListener {
     @Override
     public void onFragmentInteraction(String s) {
         //setActionBarTitle(s);
+
+
     }
 
     @Override

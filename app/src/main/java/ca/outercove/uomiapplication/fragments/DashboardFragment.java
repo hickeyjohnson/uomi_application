@@ -98,6 +98,7 @@ public class DashboardFragment extends Fragment {
                 "!\nYour net balance is...";
         welcomeTV.setText(welcomeString);
         setMainBalance();
+
         return view;
     }
 
