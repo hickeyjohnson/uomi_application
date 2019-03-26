@@ -1,5 +1,6 @@
 package ca.outercove.uomiapplication.fragments;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
+import android.support.v7.widget.Toolbar;
 
 /**
  * A fragment representing a list of Items.
@@ -85,6 +87,8 @@ public class AccountsViewFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_navigation_accounts_to_createAccountFragment);
             }
         });
+
+
         // Set the adapter
         Context context = view.getContext();
         recyclerView = view.findViewById(R.id.accounts_listed);

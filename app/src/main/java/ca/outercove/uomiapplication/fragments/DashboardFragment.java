@@ -92,6 +92,7 @@ public class DashboardFragment extends Fragment {
         netBalanceTV = view.findViewById(R.id.netBalanceAmnt);
         this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
         setMainBalance();
+
         return view;
     }
 
