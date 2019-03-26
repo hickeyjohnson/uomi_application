@@ -85,21 +85,11 @@ CreateTransactionFragment.OnFragmentInteractionListener {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                Intent upIntent=NavUtils.getParentActivityIntent(this);
-                //You might need to add some Launch Parameters like
-                upIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(upIntent);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+       return mNavController.navigateUp() || super.onSupportNavigateUp();
+    }
 
 
     public void setActionBarTitle(String title) {
