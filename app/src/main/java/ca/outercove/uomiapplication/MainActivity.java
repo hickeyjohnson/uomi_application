@@ -1,11 +1,8 @@
 package ca.outercove.uomiapplication;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import androidx.annotation.*;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -16,21 +13,23 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
+import ca.outercove.uomiapplication.fragments.CreateAccountFragment;
 import ca.outercove.uomiapplication.fragments.CreateTransactionFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
-import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
-import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
+import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 
 public class MainActivity extends AppCompatActivity implements
 AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnListFragmentInteractionListener,
 DashboardFragment.OnFragmentInteractionListener,
 SingleAccountFragment.OnListFragmentInteractionListener,
-CreateTransactionFragment.OnFragmentInteractionListener {
+CreateTransactionFragment.OnFragmentInteractionListener,
+CreateAccountFragment.OnFragmentInteractionListener {
 
     protected NavController mNavController;
 
@@ -59,8 +58,8 @@ CreateTransactionFragment.OnFragmentInteractionListener {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 // If there is an account name, make it the title, otherwise use Fragment label
                 try {
-                    Integer accountName = arguments.getInt("accountId");
-                    setActionBarTitle(accountName.toString());
+                    String accountName = arguments.getString("otherAccountUsers", (String)destination.getLabel());
+                    setActionBarTitle(accountName);
                 } catch (NullPointerException e) {
                     setActionBarTitle((String)destination.getLabel());
                 }
@@ -86,6 +85,7 @@ CreateTransactionFragment.OnFragmentInteractionListener {
     public void onListFragmentInteraction(AccountsViewItem item) {
         Bundle bundle = new Bundle();
         bundle.putInt("accountId", item.id);
+        bundle.putString("otherAccountUsers", item.contactName);
         mNavController.navigate(R.id.actionAccountSelect, bundle);
     }
 
@@ -99,5 +99,10 @@ CreateTransactionFragment.OnFragmentInteractionListener {
         Bundle bundle = new Bundle();
         bundle.putInt("accountId", accId);
         mNavController.navigate(R.id.postTransactionCreation, bundle);
+    }
+
+    @Override
+    public void onAccountCreated() {
+        mNavController.navigate(R.id.actionPostAccCreate);
     }
 }

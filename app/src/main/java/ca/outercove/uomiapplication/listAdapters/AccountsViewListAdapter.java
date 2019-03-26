@@ -69,6 +69,11 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         });
     }
 
+    public void remove(int positon) {
+        mValues.remove(positon);
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return mValues.size();
@@ -79,7 +84,7 @@ public class AccountsViewListAdapter extends RecyclerView.Adapter<AccountsViewLi
         final ImageView mAvatarView;
         final TextView mContactView;
         final MoneyTextView mBalanceView;
-        AccountsViewItem mItem;
+        public AccountsViewItem mItem;
 
         ViewHolder(View view) {
             super(view);
