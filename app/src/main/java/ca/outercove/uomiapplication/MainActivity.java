@@ -17,6 +17,7 @@ import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewI
 import ca.outercove.uomiapplication.appObjects.NotificationsContent.NotificationsListItem;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
+import ca.outercove.uomiapplication.fragments.CreateAccountFragment;
 import ca.outercove.uomiapplication.fragments.CreateTransactionFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
@@ -27,7 +28,8 @@ AccountsViewFragment.OnListFragmentInteractionListener,
 NotificationsFragment.OnListFragmentInteractionListener,
 DashboardFragment.OnFragmentInteractionListener,
 SingleAccountFragment.OnListFragmentInteractionListener,
-CreateTransactionFragment.OnFragmentInteractionListener {
+CreateTransactionFragment.OnFragmentInteractionListener,
+CreateAccountFragment.OnFragmentInteractionListener {
 
     protected NavController mNavController;
 
@@ -56,7 +58,7 @@ CreateTransactionFragment.OnFragmentInteractionListener {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 // If there is an account name, make it the title, otherwise use Fragment label
                 try {
-                    String accountName = arguments.getString("otherAccountUsers");
+                    String accountName = arguments.getString("otherAccountUsers", (String)destination.getLabel());
                     setActionBarTitle(accountName);
                 } catch (NullPointerException e) {
                     setActionBarTitle((String)destination.getLabel());
@@ -97,5 +99,10 @@ CreateTransactionFragment.OnFragmentInteractionListener {
         Bundle bundle = new Bundle();
         bundle.putInt("accountId", accId);
         mNavController.navigate(R.id.postTransactionCreation, bundle);
+    }
+
+    @Override
+    public void onAccountCreated() {
+        mNavController.navigate(R.id.actionPostAccCreate);
     }
 }
