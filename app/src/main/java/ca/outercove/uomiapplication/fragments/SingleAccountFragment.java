@@ -33,6 +33,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import androidx.navigation.Navigation;
+import ca.outercove.uomiapplication.FormattingHelper;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
@@ -99,6 +100,7 @@ public class SingleAccountFragment extends Fragment
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("accountId", getArguments().getInt("accountId"));
+                bundle.putString("accUsers", getArguments().getString("otherAccountUsers"));
                 Navigation.findNavController(v).navigate(R.id.actionCreateTransaction, bundle);
             }
         });
@@ -179,7 +181,7 @@ public class SingleAccountFragment extends Fragment
                         // TODO: more meaningful payer info than just the user ID
                         TransactionItem newItem = new TransactionItem(
                                 transItem.getInt("transaction_id"), transItem.getString("trans_label"),
-                                String.valueOf(transItem.getInt("user_owed")) + " paid",
+                                String.valueOf(transItem.getString("user_owed_name")) + " paid",
                                 transItem.getDouble("amount")
                         );
                         transactionItemArrayList.add(newItem);

@@ -97,8 +97,6 @@ public class AccountsViewFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
         getUserAccounts();
-        //mAdapter = new AccountsViewListAdapter(AccountsViewContent.ITEMS, mListener);
-        //recyclerView.setAdapter(mAdapter);
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
