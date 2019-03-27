@@ -109,10 +109,6 @@ public class SingleAccountFragment extends Fragment
         recyclerView = view.findViewById(R.id.transactionsRecView);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         getSingleAccountInformation();
-//        mAdapter = new TransactionsListAdapter(SingleAccountViewContent.ITEMS, mListener);
-//        recyclerView.setAdapter(mAdapter);
-
-
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
