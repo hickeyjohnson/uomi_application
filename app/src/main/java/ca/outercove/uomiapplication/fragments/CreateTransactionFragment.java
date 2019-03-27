@@ -125,7 +125,7 @@ public class CreateTransactionFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 if (mListener != null) {
-                    mListener.onFragmentInteraction(accountId);
+                    mListener.onFragmentInteraction(accountId, getArguments().getString("accUsers"));
                 }
             }
         }, new Response.ErrorListener() {
@@ -170,6 +170,6 @@ public class CreateTransactionFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Integer accountId);
+        void onFragmentInteraction(Integer accountId, String otherAccountUsers);
     }
 }

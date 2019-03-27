@@ -121,9 +121,10 @@ CreateAccountFragment.OnFragmentInteractionListener {
     }
 
     @Override
-    public void onFragmentInteraction(Integer accId) {
+    public void onFragmentInteraction(Integer accId, String otherAccountUsers) {
         Bundle bundle = new Bundle();
         bundle.putInt("accountId", accId);
+        bundle.putString("otherAccountUsers", otherAccountUsers);
         mNavController.navigate(R.id.postTransactionCreation, bundle);
     }
 
