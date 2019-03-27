@@ -22,4 +22,11 @@
         android:key="password"
         android:summary="Set system password to protect your software"
         android:title="System Password [Edit Text Preference]" />
+    <Preference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:key="logout_preference"
+        android:summary="Return to login page"
+        android:title="Account Logout" />
+
 </PreferenceScreen>

@@ -1,6 +1,7 @@
 package ca.outercove.uomiapplication;
 
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,6 +28,7 @@ import ca.outercove.uomiapplication.fragments.AccountsViewFragment;
 import ca.outercove.uomiapplication.fragments.CreateAccountFragment;
 import ca.outercove.uomiapplication.fragments.CreateTransactionFragment;
 import ca.outercove.uomiapplication.fragments.DashboardFragment;
+
 import ca.outercove.uomiapplication.fragments.NotificationsFragment;
 import ca.outercove.uomiapplication.fragments.SingleAccountFragment;
 
@@ -119,6 +121,7 @@ CreateAccountFragment.OnFragmentInteractionListener {
     public void onListFragmentInteraction(NotificationsListItem item) {
 
     }
+
 
     @Override
     public void onFragmentInteraction(Integer accId, String otherAccountUsers) {
