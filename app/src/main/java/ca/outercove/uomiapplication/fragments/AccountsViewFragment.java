@@ -1,6 +1,5 @@
 package ca.outercove.uomiapplication.fragments;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,27 +14,20 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.FragmentTransaction;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import androidx.navigation.Navigation;
 import ca.outercove.uomiapplication.FormattingHelper;
-import ca.outercove.uomiapplication.MainActivity;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.AccountsViewListAdapter;
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent;
 import ca.outercove.uomiapplication.appObjects.AccountsViewContent.AccountsViewItem;
-import android.support.v7.widget.Toolbar;
 
 /**
  * A fragment representing a list of Items.

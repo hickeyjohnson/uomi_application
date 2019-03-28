@@ -4,17 +4,12 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.widget.RecyclerView;
-
-import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 import ca.outercove.uomiapplication.listAdapters.TransactionsListAdapter;
 import android.view.LayoutInflater;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;

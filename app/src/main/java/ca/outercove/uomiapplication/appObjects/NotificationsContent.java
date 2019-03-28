@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ca.outercove.uomiapplication.R;
-
-
 /**
  * This class is meant for creating AccountsViewItems and content for the list of
  * accounts in the AccountViewFragment View.

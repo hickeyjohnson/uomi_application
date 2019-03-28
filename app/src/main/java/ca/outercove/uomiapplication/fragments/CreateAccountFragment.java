@@ -13,16 +13,13 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.os.Bundle;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 
@@ -77,7 +74,7 @@ public class CreateAccountFragment extends Fragment {
         emailTextView3 = view.findViewById(R.id.transVal);
         createButton = view.findViewById(R.id.createButton);
         this.pref = PreferenceManager.getDefaultSharedPreferences(getContext());
-        // Hide extra email fields if
+        // Hide extra email fields if not in group mode
         groupAccountToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

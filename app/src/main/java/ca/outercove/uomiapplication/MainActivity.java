@@ -9,14 +9,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
 import androidx.navigation.ui.AppBarConfiguration;
-import android.content.Intent;
-
-
-
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
