@@ -2,8 +2,6 @@ package ca.outercove.uomiapplication.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -13,16 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.fabiomsr.moneytextview.MoneyTextView;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.backendCommunication.RequestQueueSingleton;
 

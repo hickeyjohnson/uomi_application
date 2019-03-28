@@ -7,14 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.fabiomsr.moneytextview.MoneyTextView;
 
 import ca.outercove.uomiapplication.R;
 import ca.outercove.uomiapplication.appObjects.SingleAccountViewContent.TransactionItem;
-import ca.outercove.uomiapplication.fragments.DeleteTransactionDialogFragment;
 import ca.outercove.uomiapplication.fragments.SingleAccountFragment.OnListFragmentInteractionListener;
 
 import java.util.List;

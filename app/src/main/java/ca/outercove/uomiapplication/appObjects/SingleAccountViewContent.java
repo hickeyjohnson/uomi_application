@@ -21,23 +21,9 @@ public class SingleAccountViewContent {
         ITEM_MAP.put(item.id, item);
     }
 
-//    For creating dummy items deprecated
-//    static {
-//        // Add some sample items.
-//        for (int i = 1; i <= 15; i++) {
-//            // TODO: users and stuff
-//            addItem(createTransactionViewItem(i, null, null));
-//        }
-//    }
-
     private static TransactionItem createTransactionViewItem(Integer id, String transName, String transPayer, Double transAmnt) {
         return new TransactionItem(id, transName, transPayer, transAmnt);
     }
-
-//    public static Double findValue(User me, User you) {
-//        // TODO: query web api for what the value is
-//        return 20.19;
-//    }
 
     public static class TransactionItem {
         // TODO: contact image
