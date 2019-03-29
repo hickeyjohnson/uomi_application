@@ -89,10 +89,11 @@ and you will be returned to the login screen.
 ## Web API
 
 For the Swagger documentation for endpoints that the UOMI API employs, please see the link below:
-*[API Documentation](http://uomi-api.herokuapp.com/uomi_api/ui/#/)
+* [API Documentation](http://uomi-api.herokuapp.com/uomi_api/ui/#/)
 
 For the source code for the API (not needed for demonstrating the app, automatically uses live API)
-*[API Source Code](https://github.com/hickeyjohnson/uomi_api)
+
+* [API Source Code](https://github.com/hickeyjohnson/uomi_api)
 
 ## Built With
 
