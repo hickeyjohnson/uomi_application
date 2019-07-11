@@ -65,7 +65,6 @@ bottom-right corner of the screen is used to create a new account. For testing p
 a group or non-group account with one/multiple of the following emails:
 
 * percy_xuvelkm_jackson@tfbnw.net
-* katehickey8@hotmail.com
 
 When confirming this creation, the new account will appear on the top of the accounts view.
 
